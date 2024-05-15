@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxgyk3egpqbnw"]
+
+[ext_resource type="Texture2D" uid="uid://da5s6iepuoc8p" path="res://assets/dirt_tile.png" id="1_oaaku"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path_Tile" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+texture = ExtResource("1_oaaku")
