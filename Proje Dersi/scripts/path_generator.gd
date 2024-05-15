@@ -14,11 +14,11 @@ func generate_path():
 	_path.clear()
 	
 	var x = 0
-	var y = int(_grid_height/2)
+	var y = 0
 	
 	while x < _grid_lenght-1:
 			
-		var newy:int = randi_range(5,9)
+		var newy:int = randi_range(7.5-_grid_height/2, 7.5+_grid_height/2)
 		if x == 0:
 			y = newy
 			_path.append(Vector2i(x,y))
