@@ -1,0 +1,19 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1715772027
+::res://assets/::1715772027
+dirt_tile.png::CompressedTexture2D::7222342076256775177::1715771498::1715771926::1::::<><>::
+empty1.png::CompressedTexture2D::2304293431455088531::1715771498::1715771926::1::::<><>::
+empty2.png::CompressedTexture2D::8932249720109487738::1715771498::1715771926::1::::<><>::
+icon.svg::CompressedTexture2D::7810039209346829001::1715771498::1715771926::1::::<><>::
+output-onlinepngtools (1).png::CompressedTexture2D::3201055367170010035::1715771498::1715771926::1::::<><>::
+output-onlinepngtools.png::CompressedTexture2D::4957603234894136405::1715771498::1715771926::1::::<><>::
+Path.tscn::PackedScene::6401047580477059460::1715771498::0::1::::<><>::uid://da5s6iepuoc8p::::res://assets/dirt_tile.png
+proje_empty_tile.png::CompressedTexture2D::6108915626703001048::1715771498::1715771926::1::::<><>::
+tile_dirt.png::CompressedTexture2D::3898991458505411440::1715771498::1715771926::1::::<><>::
+::res://assets/scene_assets/::1715772027
+empty1.tscn::PackedScene::8084322836463694184::1715771498::0::1::::<><>::uid://d0i333e1ekpha::::res://assets/empty2.png
+::res://scenes/::1715772027
+main.gd::GDScript::-1::1715771498::0::1::::<>Node2D<>::
+main.tscn::PackedScene::835650583278856907::1715772030::0::1::::<><>::res://scenes/main.gd<>uid://cxgyk3egpqbnw::::res://assets/Path.tscn<>uid://dngdu7ctg3h2w::::res://assets/scene_assets/empty1.tscn
+::res://scripts/::1715771498
+path_generator.gd::GDScript::-1::1715771498::0::1::::PathGenerator<>Object<>::
