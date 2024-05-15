@@ -1,5 +1,4 @@
 res://scenes/main.tscn
 res://assets/scene_assets/Path.tscn
 res://assets/scene_assets/empty1.tscn
-res://scripts/path_generator.gd
 res://scenes/main.gd

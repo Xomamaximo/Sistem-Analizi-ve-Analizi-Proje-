@@ -5,7 +5,7 @@ extends Node2D
 @export var map_lenght:int = 20
 @export var map_height:int = 8
 
-#naber yorum deneme
+#naber yorum deneme deneme
 var map_grid: Array[Vector2i]
 var _pg:PathGenerator
 
