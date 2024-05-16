@@ -38,4 +38,4 @@ func create_grid():
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("Mouse Click/Unclick at: ", event.position)
+		print("Mouse Click/Unclick at: ", (int(event.position.x+12)/48)-7,",", int(event.position.y)/48)
