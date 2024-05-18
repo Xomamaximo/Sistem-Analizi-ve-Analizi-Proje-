@@ -8,6 +8,7 @@
 script = ExtResource("1_h0u45")
 path_tile = ExtResource("2_jxnr2")
 empty_tile1 = ExtResource("3_wyepw")
+zorluk = "zor"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 360)

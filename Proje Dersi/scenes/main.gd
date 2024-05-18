@@ -4,8 +4,9 @@ extends Node2D
 @export var empty_tile1:PackedScene
 @export var map_lenght:int = 20
 @export var map_height:int = 8
+@export_enum("kolay", "orta", "zor" ) var zorluk: String
+var zorluk_tablosu = {"kolay":50, "orta":40 , "zor":26 }
 
-#naber yorum deneme deneme
 var map_grid: Array[Vector2i]
 var _pg:PathGenerator
 
@@ -17,6 +18,9 @@ func _ready():
 	
 func _display_map():
 	var path:Array[Vector2i] = _pg.generate_path()
+	
+	while path.size() >= zorluk_tablosu[zorluk]:
+		path = _pg.generate_path()
 	print(path)
 	var empty_area:Array[Vector2i]
 	for element in map_grid:
