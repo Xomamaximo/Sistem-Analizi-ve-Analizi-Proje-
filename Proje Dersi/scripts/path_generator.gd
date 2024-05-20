@@ -38,3 +38,18 @@ func generate_path():
 		
 			
 	return _path
+
+func get_tile_score(tile:Vector2i):
+	var score:int = 0
+	var x = tile.x
+	var y = tile.y
+	
+	score += 1 if _path.has(Vector2i(x,y-1)) else 0
+	score += 2 if _path.has(Vector2i(x+1,y)) else 0
+	score += 4 if _path.has(Vector2i(x,y+1)) else 0
+	score += 8 if _path.has(Vector2i(x-1,y)) else 0
+	
+	return score
+	
+func get_path() -> Array[Vector2i]:
+	return _path

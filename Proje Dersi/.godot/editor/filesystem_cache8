@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1716031861
+::res://::1716166205
 ::res://assets/::1715884907
 corner_path.png::CompressedTexture2D::7528818345066909209::1715884866::1715884895::1::::<><>::
 dirt_tile.png::CompressedTexture2D::7222342076256775177::1715771498::1715771926::1::::<><>::
@@ -8,11 +8,11 @@ empty2.png::CompressedTexture2D::8932249720109487738::1715771498::1715771926::1:
 icon.svg::CompressedTexture2D::7810039209346829001::1715771498::1715771926::1::::<><>::
 straight_path.png::CompressedTexture2D::4865479902635639441::1715884859::1715884907::1::::<><>::
 tile_dirt.png::CompressedTexture2D::3898991458505411440::1715771498::1715771926::1::::<><>::
-::res://assets/scene_assets/::1715886196
-empty1.tscn::PackedScene::8084322836463694184::1715886196::0::1::::<><>::uid://d0i333e1ekpha::::res://assets/empty2.png
-Path.tscn::PackedScene::6401047580477059460::1715886196::0::1::::<><>::uid://cbk40jcn63ipd::::res://assets/straight_path.png
-::res://scenes/::1715886225
-main.gd::GDScript::-1::1715886194::0::1::::<>Node2D<>::
-main.tscn::PackedScene::835650583278856907::1715886225::0::1::::<><>::res://scenes/main.gd<>uid://cxgyk3egpqbnw::::res://assets/scene_assets/Path.tscn<>uid://dngdu7ctg3h2w::::res://assets/scene_assets/empty1.tscn
+::res://assets/scene_assets/::1716034119
+empty1.tscn::PackedScene::8084322836463694184::1716034119::0::1::::<><>::uid://d0i333e1ekpha::::res://assets/empty2.png
+Path.tscn::PackedScene::6401047580477059460::1716034119::0::1::::<><>::uid://cbk40jcn63ipd::::res://assets/straight_path.png
+::res://scenes/::1716034146
+main.gd::GDScript::-1::1716166447::0::1::::<>Node2D<>::
+main.tscn::PackedScene::835650583278856907::1716166447::0::1::::<><>::res://scenes/main.gd<>uid://cxgyk3egpqbnw::::res://assets/scene_assets/Path.tscn<>uid://dngdu7ctg3h2w::::res://assets/scene_assets/empty1.tscn
 ::res://scripts/::1715884901
 path_generator.gd::GDScript::-1::1715775031::0::1::::PathGenerator<>Object<>::

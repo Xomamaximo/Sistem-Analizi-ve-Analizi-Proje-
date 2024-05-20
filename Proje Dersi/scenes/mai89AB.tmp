@@ -9,8 +9,10 @@
 script = ExtResource("1_h0u45")
 tile_straight = ExtResource("2_jxnr2")
 tile_empty = ExtResource("3_wyepw")
-tile_corner = ExtResource("4_omtn4")
-zorluk = "orta"
+corner_tile = ExtResource("4_omtn4")
+map_lenght = null
+map_height = null
+zorluk = "kolay"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 360)
