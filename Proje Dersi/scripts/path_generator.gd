@@ -5,6 +5,7 @@ var _grid_lenght:int
 var _grid_height:int
 
 var _path: Array[Vector2i]
+var _path_reverse: Array[Vector2i]
 
 func _init(lenght:int,height:int):
 	_grid_lenght = lenght
@@ -53,3 +54,12 @@ func get_tile_score(tile:Vector2i):
 	
 func get_path() -> Array[Vector2i]:
 	return _path
+
+func get_path_reversed() -> Array[Vector2i]:
+	var i:int= _path.size()-1
+	for element in _path:
+		_path_reverse.append(_path[i])
+		i-=1
+	print(_path_reverse)
+	return _path_reverse
+

@@ -3,6 +3,8 @@ extends Node2D
 @export var tile_straight:PackedScene
 @export var tile_empty:PackedScene
 @export var tile_corner:PackedScene
+@export var tile_enemy:PackedScene
+
 @export var map_lenght:int = 20
 @export var map_height:int = 8
 
@@ -17,7 +19,36 @@ func _ready():
 	_pg = PathGenerator.new(map_lenght, map_height)
 	_display_path()
 	_complete_grid()
+
+	await get_tree().create_timer(0.5).timeout
+	_pop_along_grid()
 	
+func _pop_along_grid():
+	var box = tile_enemy.instantiate()
+	
+	var c2d:Curve2D = Curve2D.new()
+	
+	for element in _pg.get_path_reversed():
+		var _aralık:int = 0
+		while _aralık < 48:
+			_aralık += 1
+			c2d.add_point(Vector2(element.x*48+24, element.y*48+24))
+
+	var p2d:Path2D = Path2D.new()
+	add_child(p2d)
+	p2d.curve = c2d
+	
+	var pf2d:PathFollow2D = PathFollow2D.new()
+	p2d.add_child(pf2d)
+	pf2d.add_child(box)
+	
+	var curr_distance:float = 0.0
+	
+	while curr_distance < c2d.point_count-1:
+		curr_distance += 5
+		pf2d.progress = clamp(curr_distance, 0, c2d.point_count-48.0001)
+		await get_tree().create_timer(0.01).timeout
+
 func _complete_grid():
 	for x in range(map_lenght):
 		for y in range (15):
@@ -25,6 +56,7 @@ func _complete_grid():
 				var tile:Node2D = tile_empty.instantiate()
 				add_child(tile)
 				tile.global_position = Vector2(x*48+24,y*48+24)
+
 func _display_path():
 	var _path:Array[Vector2i] = _pg.generate_path()
 	
