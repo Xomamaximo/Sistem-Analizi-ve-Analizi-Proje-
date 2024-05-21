@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgnmcctilqguk"]
+
+[ext_resource type="Script" path="res://scripts/peasent_enemy.gd" id="1_yo3qw"]
+[ext_resource type="Texture2D" uid="uid://pp43f3k8t2he" path="res://assets/proje_tiles_Enemy1.png" id="2_dl5vu"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_0amji"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_txiue"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_ar2s1"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_g4362"]
+
+[sub_resource type="Animation" id="Animation_0hrrk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/ProjeTilesEnemy1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_wkseg"]
+resource_name = "spawning"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/ProjeTilesEnemy1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8r1p1"]
+_data = {
+"RESET": SubResource("Animation_0hrrk"),
+"spawning": SubResource("Animation_wkseg")
+}
+
+[node name="peasent_enemy" type="Node2D"]
+script = ExtResource("1_yo3qw")
+
+[node name="EnemyStateChart" type="Node" parent="."]
+script = ExtResource("3_0amji")
+
+[node name="CompoundState" type="Node" parent="EnemyStateChart"]
+script = ExtResource("4_txiue")
+initial_state = NodePath("spawning")
+
+[node name="spawning" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_g4362")
+
+[node name="ToTravelling" type="Node" parent="EnemyStateChart/CompoundState/spawning"]
+script = ExtResource("5_ar2s1")
+to = NodePath("../../travelling")
+event = &"to_travelling"
+
+[node name="travelling" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_g4362")
+
+[node name="ToRespawning" type="Node" parent="EnemyStateChart/CompoundState/travelling"]
+script = ExtResource("5_ar2s1")
+to = NodePath("../../respawning")
+event = &"to_respawning"
+
+[node name="dying" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_g4362")
+
+[node name="respawning" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_g4362")
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+loop = false
+
+[node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-1, -3)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_dl5vu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8r1p1")
+}
+
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/spawning" to="." method="_on_spawning_state_entered"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_entered"]
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_processing"]

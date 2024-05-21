@@ -25,7 +25,7 @@ func generate_path():
 	
 	while x < path_config.map_lenght-1:
 			
-		var newy:int = randi_range(7.5-path_config.map_lenght/2, 7.5+path_config.map_height/2)
+		var newy:int = randi_range(7.5-path_config.map_height/2, 7.5+path_config.map_height/2)
 		if x == 0:
 			y = newy
 			_path_route.append(Vector2i(x,y))

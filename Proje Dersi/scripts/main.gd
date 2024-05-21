@@ -4,6 +4,7 @@ extends Node2D
 @export var tile_empty:Array[PackedScene]
 @export var tile_corner:PackedScene
 @export var tile_enemy:PackedScene
+@export var peasent_enemy:PackedScene
 
 var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 
@@ -21,30 +22,11 @@ func _ready():
 	_pop_along_grid()
 	
 func _pop_along_grid():
-	var box = tile_enemy.instantiate()
+	for i in 20:
+		await get_tree().create_timer(1).timeout
+		var box = peasent_enemy.instantiate()
+		add_child(box)
 	
-	var c2d:Curve2D = Curve2D.new()
-	
-	for element in PathGenInstance.get_path_reversed():
-		var _aralık:int = 0
-		while _aralık < 48:
-			_aralık += 1
-			c2d.add_point(Vector2(element.x*48+24, element.y*48+24))
-
-	var p2d:Path2D = Path2D.new()
-	add_child(p2d)
-	p2d.curve = c2d
-	
-	var pf2d:PathFollow2D = PathFollow2D.new()
-	p2d.add_child(pf2d)
-	pf2d.add_child(box)
-	
-	var curr_distance:float = 0.0
-	
-	while curr_distance < c2d.point_count-1:
-		curr_distance += 1
-		pf2d.progress = clamp(curr_distance, 0, c2d.point_count-48.0001)
-		await get_tree().create_timer(0.01).timeout
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_lenght):

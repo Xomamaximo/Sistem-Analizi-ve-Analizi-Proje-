@@ -1,1 +1,7 @@
+AnimationPlayer
+AtomicState
+PathFollow2D
+PathFollow3D
+Path2D
+StateChart
 Sprite2D
