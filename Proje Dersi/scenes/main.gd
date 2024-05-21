@@ -1,24 +1,20 @@
 extends Node2D
 
 @export var tile_straight:PackedScene
-@export var tile_empty:PackedScene
+@export var tile_empty:Array[PackedScene]
 @export var tile_corner:PackedScene
 @export var tile_enemy:PackedScene
 
-@export var map_lenght:int = 20
-@export var map_height:int = 8
+var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 
-@export_enum("kolay", "orta", "zor" ) var zorluk: String
-var zorluk_tablosu = {"kolay":50, "orta":35 , "zor":26  }
-
-var map_grid: Array[Vector2i]
-var _pg:PathGenerator
+#var map_grid: Array[Vector2i]
+#var _pg:PathGenerator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_pg = PathGenerator.new(map_lenght, map_height)
-	_display_path()
+	#PathGenInstance = PathGenerator.new(map_lenght, map_height)
 	_complete_grid()
+	print(PathGenInstance.get_path_route())
 
 	await get_tree().create_timer(0.5).timeout
 	_pop_along_grid()
@@ -28,7 +24,7 @@ func _pop_along_grid():
 	
 	var c2d:Curve2D = Curve2D.new()
 	
-	for element in _pg.get_path_reversed():
+	for element in PathGenInstance.get_path_reversed():
 		var _aralık:int = 0
 		while _aralık < 48:
 			_aralık += 1
@@ -50,47 +46,50 @@ func _pop_along_grid():
 		await get_tree().create_timer(0.01).timeout
 
 func _complete_grid():
-	for x in range(map_lenght):
-		for y in range (15):
-			if not _pg.get_path().has(Vector2i(x,y)):
-				var tile:Node2D = tile_empty.instantiate()
+	for x in range(path_config.map_lenght):
+		for y in range (PathGenInstance.path_config.map_height):
+			if not PathGenInstance.get_path_route().has(Vector2i(x,y)):
+				var tile:Node2D = tile_empty.pick_random().instantiate()
 				add_child(tile)
 				tile.global_position = Vector2(x*48+24,y*48+24)
-
-func _display_path():
-	var _path:Array[Vector2i] = _pg.generate_path()
-	
-	while _path.size() >= zorluk_tablosu[zorluk]:
-		_path = _pg.generate_path()
-	print(_path)
-
-	for element in _path:
-		var tile_score:int = _pg.get_tile_score(element)
+				tile.global_rotation_degrees = 90
+				
+	for i in range(PathGenInstance.get_path_route().size()):
+		var tile_score:int = PathGenInstance.get_tile_score(i)
 		
-		var tile:Node2D = tile_empty.instantiate()
-		var tile_rotation:float = 0
+		var tile:Node2D = tile_empty[0].instantiate()
+		var tile_rotation: float = 0
 		
-		if tile_score == 2 or tile_score == 8 or tile_score == 10:
+		if tile_score == 2:
 			tile = tile_straight.instantiate()
-			tile_rotation = 0
-		elif tile_score == 1 or tile_score == 4 or tile_score == 5:
+			tile_rotation = -90
+		elif tile_score == 8:
 			tile = tile_straight.instantiate()
 			tile_rotation = 90
+		elif tile_score == 10:
+			tile = tile_straight.instantiate()
+			tile_rotation = 90
+		elif tile_score == 1 or tile_score == 4 or tile_score == 5:
+			tile = tile_straight.instantiate()
+			tile_rotation = 0
+		elif tile_score == 6:
+			tile = tile_corner.instantiate()
+			tile_rotation = 180
 		elif tile_score == 12:
 			tile = tile_corner.instantiate()
 			tile_rotation = 90
-		elif tile_score == 6:
-			tile = tile_corner.instantiate()
-			tile_rotation = 0
 		elif tile_score == 9:
 			tile = tile_corner.instantiate()
-			tile_rotation = 180
+			tile_rotation = 0
 		elif tile_score == 3:
 			tile = tile_corner.instantiate()
 			tile_rotation = 270
+			
 		add_child(tile)
-		tile.global_position = Vector2(element.x*48+24,element.y*48+24)
+		tile.global_position = Vector2(50,50)
 		tile.global_rotation_degrees = tile_rotation
+
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
