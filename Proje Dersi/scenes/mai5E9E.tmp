@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://djbvyqtxhf1do"]
+
+[ext_resource type="Texture2D" uid="uid://db4rcbdxgu4sx" path="res://assets/archer_tower.png" id="5_clg8w"]
+
+[sub_resource type="GDScript" id="GDScript_1xy3d"]
+
+[node name="main" type="Node2D"]
+script = SubResource("GDScript_1xy3d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(320, 360)
+
+[node name="ArcherTower" type="Sprite2D" parent="."]
+position = Vector2(-26, 389)
+texture = ExtResource("5_clg8w")

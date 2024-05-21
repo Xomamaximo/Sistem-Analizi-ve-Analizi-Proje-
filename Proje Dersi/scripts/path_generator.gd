@@ -15,7 +15,6 @@ func _init():
 	generate_path()
 	while _path_route.size() <  zorluk_tablosu[path_config.zorluk] or _path_route.size() > zorluk_tablosu[path_config.zorluk ] + 10:
 		generate_path()
-	print(_path_route)
 
 func generate_path():
 	_path_route.clear()
@@ -52,6 +51,9 @@ func get_tile_score(index:int) -> int:
 	var x = _path_route[index].x
 	var y = _path_route[index].y
 	
+#    1
+# 8    2
+#    4
 	score += 1 if _path_route.has(Vector2i(x,y-1)) else 0
 	score += 2 if _path_route.has(Vector2i(x+1,y)) else 0
 	score += 4 if _path_route.has(Vector2i(x,y+1)) else 0
