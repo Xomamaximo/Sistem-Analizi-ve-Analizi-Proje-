@@ -3,20 +3,18 @@ extends Node2D
 @export var tile_straight:PackedScene
 @export var tile_empty:Array[PackedScene]
 @export var tile_corner:PackedScene
-@export var tile_enemy:PackedScene
 @export var peasent_enemy:PackedScene
 
-var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
+#var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 
 #var map_grid: Array[Vector2i]
 #var _pg:PathGenerator
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	#PathGenInstance = PathGenerator.new(map_lenght, map_height)
 	_complete_grid()
-	display_path()
 	print(PathGenInstance.get_path_route())
+	print(PathGenInstance.get_path_reversed())
 
 	await get_tree().create_timer(0.5).timeout
 	_pop_along_grid()
@@ -36,7 +34,6 @@ func _complete_grid():
 				add_child(tile)
 				tile.global_position = Vector2(x*48+24,y*48+24)
 				tile.global_rotation_degrees = 90
-func display_path():
 	for i in range(PathGenInstance.get_path_route().size()):
 		var tile_score:int = PathGenInstance.get_tile_score(i)
 		

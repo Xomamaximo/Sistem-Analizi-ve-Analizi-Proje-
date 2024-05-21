@@ -5,7 +5,7 @@ var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.
 
 
 
-var zorluk_tablosu = {"kolay":45, "orta":35 , "zor":25  } 
+var zorluk_tablosu = {"kolay":50, "orta":35 , "zor":20  } 
 
 var _path_route: Array[Vector2i]
 var _path_reverse: Array[Vector2i]
@@ -13,7 +13,7 @@ var _path_reverse: Array[Vector2i]
 
 func _init():
 	generate_path()
-	while _path_route.size() <  zorluk_tablosu[path_config.zorluk] or _path_route.size() > zorluk_tablosu[path_config.zorluk ] + 10:
+	while _path_route.size() <  zorluk_tablosu[path_config.zorluk] or  _path_route.size() >  zorluk_tablosu[path_config.zorluk] +5  :
 		generate_path()
 
 func generate_path():
@@ -74,6 +74,5 @@ func get_path_reversed() -> Array[Vector2i]:
 	for element in _path_route:
 		_path_reverse.append(_path_route[i])
 		i-=1
-	print(_path_reverse)
 	return _path_reverse
 

@@ -2,15 +2,15 @@ extends Node2D
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var peasent_speed:float = 150
+var peasent_speed:float = 100
 var peasent_heal:int = 100
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	curve_2d = Curve2D.new()
 	for element in PathGenInstance.get_path_reversed():
-		curve_2d.add_point(Vector2(element.x*48+24, element.y*48+24)) 
+		curve_2d.add_point(Vector2(element.x*48+24, element.y*48+23)) 
 	$Path2D.curve = curve_2d
-	$Path2D/PathFollow2D.progress_ratio = 0# Replace with function body.
+	$Path2D/PathFollow2D.progress_ratio = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +33,7 @@ func _on_travelling_state_processing(delta):
 	if peasent_heal <= 0:
 		print("peasent died")
 		$EnemyStateChart.send_event("to_dying")
-	if peasent_progress > PathGenInstance.get_path_route().size()*47:
+	if peasent_progress >= PathGenInstance.get_path_route().size()*46+24:
 		print("reached")
 		$EnemyStateChart.send_event("to_despawning")
 
