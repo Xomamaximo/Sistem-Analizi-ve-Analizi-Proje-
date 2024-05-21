@@ -45,7 +45,7 @@ func _pop_along_grid():
 	var curr_distance:float = 0.0
 	
 	while curr_distance < c2d.point_count-1:
-		curr_distance += 5
+		curr_distance += 1
 		pf2d.progress = clamp(curr_distance, 0, c2d.point_count-48.0001)
 		await get_tree().create_timer(0.01).timeout
 
