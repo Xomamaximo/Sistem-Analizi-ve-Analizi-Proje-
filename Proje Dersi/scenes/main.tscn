@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=8 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0lxol8nygl18" path="res://scenes/path_corner.tscn" id="4_omtn4"]
 [ext_resource type="Texture2D" uid="uid://db4rcbdxgu4sx" path="res://assets/archer_tower.png" id="5_clg8w"]
 [ext_resource type="PackedScene" uid="uid://bhotoit5aor83" path="res://scenes/peasent_enemy.tscn" id="6_e8dla"]
+[ext_resource type="Texture2D" uid="uid://dep70ha5dhw8f" path="res://assets/sol taraf proje.png" id="7_2j1e4"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -18,5 +19,12 @@ peasent_enemy = ExtResource("6_e8dla")
 offset = Vector2(320, 360)
 
 [node name="ArcherTower" type="Sprite2D" parent="."]
-position = Vector2(-26, 389)
+top_level = true
+position = Vector2(407, 171)
 texture = ExtResource("5_clg8w")
+
+[node name="SolTarafProje" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(-320, 0)
+texture = ExtResource("7_2j1e4")
+centered = false

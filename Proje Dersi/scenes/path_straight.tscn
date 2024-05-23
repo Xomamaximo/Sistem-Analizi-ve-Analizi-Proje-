@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxgyk3egpqbnw"]
 
-[ext_resource type="Texture2D" uid="uid://cbk40jcn63ipd" path="res://assets/straight_path.png" id="1_vgi3o"]
+[ext_resource type="Texture2D" uid="uid://cvtvebeisfpmt" path="res://assets/straight_path_yesil.png" id="1_icg1e"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Path_Tile" type="Sprite2D" parent="."]
-texture = ExtResource("1_vgi3o")
+texture = ExtResource("1_icg1e")
