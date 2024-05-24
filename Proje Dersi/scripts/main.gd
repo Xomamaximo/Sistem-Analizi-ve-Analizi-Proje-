@@ -4,7 +4,7 @@ extends Node2D
 @export var tile_empty:Array[PackedScene]
 @export var tile_corner:PackedScene
 @export var peasent_enemy:PackedScene
-
+@export var knight_enemy:PackedScene
 #var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 
 #var map_grid: Array[Vector2i]
@@ -17,14 +17,21 @@ func _ready():
 	print(PathGenInstance.get_path_reversed())
 
 	await get_tree().create_timer(0.5).timeout
-	_pop_along_grid()
+	_summon_peasant()
+	await get_tree().create_timer(1).timeout
+	_summon_knight()
 	
-func _pop_along_grid():
+func _summon_peasant():
 	for i in 20:
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2).timeout
 		var box = peasent_enemy.instantiate()
 		add_child(box)
-	
+		
+func _summon_knight():
+	for i in 20:
+		await get_tree().create_timer(2).timeout
+		var box = knight_enemy.instantiate()
+		add_child(box)	
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_lenght):

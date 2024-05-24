@@ -2,8 +2,8 @@ extends Node2D
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var peasent_speed:float = 100
-var peasent_heal:int = 100
+var peasent_speed:float = 60
+var peasent_heal:int = 300
 
 func _ready():
 	curve_2d = Curve2D.new()

@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhotoit5aor83"]
+[gd_scene load_steps=11 format=3 uid="uid://b8ijmsv4heh5c"]
 
-[ext_resource type="Script" path="res://scripts/peasent_enemy.gd" id="1_yo3qw"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_0amji"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_txiue"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_ar2s1"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_g4362"]
-[ext_resource type="Texture2D" uid="uid://bb5n560o4fajd" path="res://assets/enemy_farmer.png" id="6_o8dol"]
+[ext_resource type="Script" path="res://scripts/knight_enemy.gd" id="1_e14sh"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_a0wat"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_3pb5r"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_he0xf"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_wpf21"]
+[ext_resource type="Texture2D" uid="uid://dd26ejskh88dt" path="res://assets/enemy_knight.png" id="6_8ad5j"]
 
 [sub_resource type="Animation" id="Animation_0bqmu"]
 resource_name = "despawning"
@@ -59,42 +59,42 @@ _data = {
 "spawning": SubResource("Animation_wkseg")
 }
 
-[node name="peasant_enemy" type="Node2D"]
-script = ExtResource("1_yo3qw")
+[node name="knight_enemy" type="Node2D"]
+script = ExtResource("1_e14sh")
 
 [node name="EnemyStateChart" type="Node" parent="."]
-script = ExtResource("3_0amji")
+script = ExtResource("2_a0wat")
 
 [node name="CompoundState" type="Node" parent="EnemyStateChart"]
-script = ExtResource("4_txiue")
+script = ExtResource("3_3pb5r")
 initial_state = NodePath("spawning")
 
 [node name="spawning" type="Node" parent="EnemyStateChart/CompoundState"]
-script = ExtResource("5_g4362")
+script = ExtResource("4_he0xf")
 
 [node name="ToTravelling" type="Node" parent="EnemyStateChart/CompoundState/spawning"]
-script = ExtResource("5_ar2s1")
+script = ExtResource("5_wpf21")
 to = NodePath("../../travelling")
 event = &"to_travelling"
 
 [node name="travelling" type="Node" parent="EnemyStateChart/CompoundState"]
-script = ExtResource("5_g4362")
+script = ExtResource("4_he0xf")
 
 [node name="ToDespawning" type="Node" parent="EnemyStateChart/CompoundState/travelling"]
-script = ExtResource("5_ar2s1")
+script = ExtResource("5_wpf21")
 to = NodePath("../../despawning")
 event = &"to_despawning"
 
 [node name="ToDying" type="Node" parent="EnemyStateChart/CompoundState/travelling"]
-script = ExtResource("5_ar2s1")
+script = ExtResource("5_wpf21")
 to = NodePath("../../dying")
 event = &"to_dying"
 
 [node name="dying" type="Node" parent="EnemyStateChart/CompoundState"]
-script = ExtResource("5_g4362")
+script = ExtResource("4_he0xf")
 
 [node name="despawning" type="Node" parent="EnemyStateChart/CompoundState"]
-script = ExtResource("5_g4362")
+script = ExtResource("4_he0xf")
 
 [node name="Path2D" type="Path2D" parent="."]
 
@@ -103,7 +103,7 @@ rotates = false
 loop = false
 
 [node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
-texture = ExtResource("6_o8dol")
+texture = ExtResource("6_8ad5j")
 offset = Vector2(0, -12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
