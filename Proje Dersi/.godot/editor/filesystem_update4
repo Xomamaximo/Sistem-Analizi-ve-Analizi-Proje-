@@ -1,11 +1,6 @@
-res://scenes/knight_enemy.tscn
-res://scripts/main.gd
 res://scenes/main.tscn
 res://scenes/path_straight.tscn
 res://scenes/path_corner.tscn
 res://scenes/empty1.tscn
 res://scenes/peasent_enemy.tscn
-res://scripts/path_generator.gd
-res://scripts/knight_enemy.gd
-res://scripts/peasent_enemy.gd
-res://scripts/path_generator_config.gd
+res://scenes/knight_enemy.tscn
