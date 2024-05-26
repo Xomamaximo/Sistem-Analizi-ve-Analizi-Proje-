@@ -34,7 +34,7 @@ func _on_travelling_state_processing(delta):
 		print("peasent died")
 		$EnemyStateChart.send_event("to_dying")
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
-		print("reached düşmanın yürüme mesafesi(px): ",peasent_progress," yolun kare sayısı: ",PathGenInstance.get_path_route().size()," düşmanların gitmesi gereken mesafe(px): ",PathGenInstance.get_path_route().size()*46+24)
+		print("peasant reached")
 		$EnemyStateChart.send_event("to_despawning")
 
 

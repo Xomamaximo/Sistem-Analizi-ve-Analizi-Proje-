@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=11 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
 [ext_resource type="PackedScene" uid="uid://dngdu7ctg3h2w" path="res://scenes/empty1.tscn" id="3_wyepw"]
 [ext_resource type="PackedScene" uid="uid://d0lxol8nygl18" path="res://scenes/path_corner.tscn" id="4_omtn4"]
-[ext_resource type="Texture2D" uid="uid://db4rcbdxgu4sx" path="res://assets/archer_tower.png" id="5_clg8w"]
 [ext_resource type="PackedScene" uid="uid://bhotoit5aor83" path="res://scenes/peasent_enemy.tscn" id="6_e8dla"]
 [ext_resource type="PackedScene" uid="uid://b8ijmsv4heh5c" path="res://scenes/knight_enemy.tscn" id="6_je7qo"]
-[ext_resource type="Texture2D" uid="uid://dep70ha5dhw8f" path="res://assets/sol taraf proje.png" id="7_2j1e4"]
+[ext_resource type="Texture2D" uid="uid://ddeyaeux1qrhl" path="res://assets/sol taraf proje.png" id="7_2j1e4"]
+[ext_resource type="Texture2D" uid="uid://dwm0g6f7s5bkp" path="res://assets/Carpentryy.png" id="9_j1oin"]
 [ext_resource type="Texture2D" uid="uid://crc2khhkbvwx2" path="res://assets/archer_tower1.png" id="9_o0off"]
+[ext_resource type="Texture2D" uid="uid://buhh8lqojuj0l" path="res://assets/banka1.png" id="10_xo0ap"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -21,18 +22,20 @@ knight_enemy = ExtResource("6_je7qo")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 360)
 
-[node name="ArcherTower" type="Sprite2D" parent="."]
-top_level = true
-position = Vector2(408, 170)
-texture = ExtResource("5_clg8w")
-
-[node name="SolTarafProje" type="Sprite2D" parent="."]
-top_level = true
-position = Vector2(-320, 0)
-texture = ExtResource("7_2j1e4")
-centered = false
-
 [node name="ArcherTower1" type="Sprite2D" parent="."]
 top_level = true
 position = Vector2(358, 167)
 texture = ExtResource("9_o0off")
+
+[node name="SolTarafProje" type="Sprite2D" parent="."]
+position = Vector2(-320, 0)
+texture = ExtResource("7_2j1e4")
+centered = false
+
+[node name="Banka1" type="Sprite2D" parent="."]
+position = Vector2(-251, 299)
+texture = ExtResource("10_xo0ap")
+
+[node name="Carpentryy" type="Sprite2D" parent="."]
+position = Vector2(-125, 296)
+texture = ExtResource("9_j1oin")

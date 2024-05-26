@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 AnimationPlayer
 AtomicState
 PathFollow2D

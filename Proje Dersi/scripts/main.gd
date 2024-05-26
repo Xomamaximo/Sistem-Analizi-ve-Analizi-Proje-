@@ -6,20 +6,19 @@ extends Node2D
 @export var peasent_enemy:PackedScene
 @export var knight_enemy:PackedScene
 #var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
+@onready var cam = $Camera2D
 
-#var map_grid: Array[Vector2i]
-#var _pg:PathGenerator
-
+var RAYCAST_LENGTH:float = 100
 
 func _ready():
 	_complete_grid()
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
 
-	await get_tree().create_timer(0.5).timeout
-	_summon_peasant()
-	await get_tree().create_timer(1).timeout
-	_summon_knight()
+	#await get_tree().create_timer(0.5).timeout
+	#_summon_peasant()
+	#await get_tree().create_timer(1).timeout
+	#_summon_knight()
 	
 func _summon_peasant():
 	for i in 20:
@@ -32,7 +31,21 @@ func _summon_knight():
 		await get_tree().create_timer(2).timeout
 		var box = knight_enemy.instantiate()
 		add_child(box)	
-
+func _physics_process(_delta):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var space_state = get_world_2d().direct_space_state
+		var mouse_pos:Vector2 = get_viewport().get_mouse_position()
+		var origin:Vector2 = Vector2(mouse_pos.x-320,mouse_pos.y)
+		var end:Vector2 = Vector2(mouse_pos.x-320,mouse_pos.y)
+		var query = PhysicsRayQueryParameters2D.create(origin, end)
+		query.collide_with_areas = true
+		query.hit_from_inside = true
+		var rayResult:Dictionary = space_state.intersect_ray(query)
+		if rayResult.size() > 0:
+			#print(rayResult)
+			var co:CollisionObject2D = rayResult.get("collider")
+			print(co.get_groups())
+			
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_lenght):
 		for y in range (PathGenInstance.path_config.map_height+7):
@@ -76,7 +89,7 @@ func _complete_grid():
 		tile.global_position = Vector2(PathGenInstance.get_path_tile(i).x*48+24, PathGenInstance.get_path_tile(i).y*48+24)
 		tile.global_rotation_degrees = tile_rotation
 
-func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print(event.position)
-		print("Mouse Click/Unclick at: ", (int(event.position.x-36)/48)-6,",", int(event.position.y)/48)
+#func _input(event):
+	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#print(event.position)
+		#print("Mouse Click/Unclick at: ", (int(event.position.x-36)/48)-6,",", int(event.position.y)/48)
