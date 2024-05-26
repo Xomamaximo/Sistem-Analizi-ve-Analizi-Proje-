@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhotoit5aor83"]
+[gd_scene load_steps=11 format=3 uid="uid://bdrq1bc30emp5"]
 
 [ext_resource type="Script" path="res://scripts/peasent_enemy.gd" id="1_yo3qw"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_0amji"]

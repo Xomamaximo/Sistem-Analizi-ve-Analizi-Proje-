@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
 [ext_resource type="PackedScene" uid="uid://dngdu7ctg3h2w" path="res://scenes/empty1.tscn" id="3_wyepw"]
 [ext_resource type="PackedScene" uid="uid://d0lxol8nygl18" path="res://scenes/path_corner.tscn" id="4_omtn4"]
-[ext_resource type="PackedScene" uid="uid://bhotoit5aor83" path="res://scenes/peasent_enemy.tscn" id="6_e8dla"]
-[ext_resource type="PackedScene" uid="uid://b8ijmsv4heh5c" path="res://scenes/knight_enemy.tscn" id="6_je7qo"]
+[ext_resource type="PackedScene" uid="uid://bdrq1bc30emp5" path="res://scenes/enemy_peasent.tscn" id="5_bwx4i"]
+[ext_resource type="PackedScene" uid="uid://b8ijmsv4heh5c" path="res://scenes/enemy_knight.tscn" id="6_je7qo"]
 [ext_resource type="Texture2D" uid="uid://ddeyaeux1qrhl" path="res://assets/sol taraf proje.png" id="7_2j1e4"]
 [ext_resource type="Texture2D" uid="uid://dwm0g6f7s5bkp" path="res://assets/Carpentryy.png" id="9_j1oin"]
 [ext_resource type="Texture2D" uid="uid://crc2khhkbvwx2" path="res://assets/archer_tower1.png" id="9_o0off"]
@@ -16,7 +16,7 @@ script = ExtResource("1_vayw6")
 tile_straight = ExtResource("2_jxnr2")
 tile_empty = Array[PackedScene]([ExtResource("3_wyepw")])
 tile_corner = ExtResource("4_omtn4")
-peasent_enemy = ExtResource("6_e8dla")
+peasent_enemy = ExtResource("5_bwx4i")
 knight_enemy = ExtResource("6_je7qo")
 
 [node name="Camera2D" type="Camera2D" parent="."]

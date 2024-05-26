@@ -4,6 +4,6 @@ res://scenes/path_corner.tscn
 res://scenes/empty1.tscn
 res://scenes/peasent_enemy.tscn
 res://scenes/knight_enemy.tscn
-res://scripts/peasent_enemy.gd
-res://scripts/knight_enemy.gd
 res://scripts/main.gd
+res://scenes/enemy_peasent.tscn
+res://scenes/enemy_knight.tscn

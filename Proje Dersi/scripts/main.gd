@@ -15,10 +15,10 @@ func _ready():
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
 
-	#await get_tree().create_timer(0.5).timeout
-	#_summon_peasant()
-	#await get_tree().create_timer(1).timeout
-	#_summon_knight()
+	await get_tree().create_timer(0.5).timeout
+	_summon_peasant()
+	await get_tree().create_timer(1).timeout
+	_summon_knight()
 	
 func _summon_peasant():
 	for i in 20:
