@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=13 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dwm0g6f7s5bkp" path="res://assets/Carpentryy.png" id="9_j1oin"]
 [ext_resource type="Texture2D" uid="uid://crc2khhkbvwx2" path="res://assets/archer_tower1.png" id="9_o0off"]
 [ext_resource type="Texture2D" uid="uid://buhh8lqojuj0l" path="res://assets/banka1.png" id="10_xo0ap"]
+[ext_resource type="PackedScene" uid="uid://c11sooqyr6ega" path="res://scenes/activity_button.tscn" id="11_h0omi"]
+[ext_resource type="PackedScene" uid="uid://w4nhuk5jg1qy" path="res://scenes/tower_archer.tscn" id="13_alqat"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -22,20 +24,41 @@ knight_enemy = ExtResource("6_je7qo")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 360)
 
-[node name="ArcherTower1" type="Sprite2D" parent="."]
-top_level = true
-position = Vector2(358, 167)
-texture = ExtResource("9_o0off")
-
 [node name="SolTarafProje" type="Sprite2D" parent="."]
 position = Vector2(-320, 0)
 texture = ExtResource("7_2j1e4")
 centered = false
 
-[node name="Banka1" type="Sprite2D" parent="."]
-position = Vector2(-251, 299)
+[node name="Banka1" type="Sprite2D" parent="SolTarafProje"]
+position = Vector2(69, 299)
 texture = ExtResource("10_xo0ap")
 
-[node name="Carpentryy" type="Sprite2D" parent="."]
-position = Vector2(-125, 296)
+[node name="Carpentryy" type="Sprite2D" parent="SolTarafProje"]
+position = Vector2(195, 296)
 texture = ExtResource("9_j1oin")
+
+[node name="Control" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchor_left = -0.251563
+anchor_right = 0.0015625
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" parent="Control" instance=ExtResource("11_h0omi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.215914
+anchor_top = 0.417778
+anchor_right = 0.215914
+anchor_bottom = 0.417778
+offset_left = -49.956
+offset_top = -49.8
+offset_right = 50.044
+offset_bottom = 50.2
+grow_vertical = 2
+activity_button_icon = ExtResource("9_o0off")
+activity_draggable = ExtResource("13_alqat")
+metadata/_edit_use_anchors_ = true

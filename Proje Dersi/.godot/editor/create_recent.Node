@@ -1,9 +1,15 @@
+Control
+Button
+Node2D
+MeshInstance2D
+Node
+PathFollow2D
+Path2D
+ColorRect
 CollisionShape2D
 Area2D
 AnimationPlayer
 AtomicState
-PathFollow2D
 PathFollow3D
-Path2D
 StateChart
 Sprite2D

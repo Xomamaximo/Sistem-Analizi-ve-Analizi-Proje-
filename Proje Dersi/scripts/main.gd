@@ -11,6 +11,9 @@ extends Node2D
 var RAYCAST_LENGTH:float = 100
 
 func _ready():
+	$SolTarafProje.visible = true
+	$Control/Button.disabled = true
+	$Control/Button.self_modulate = Color(1,1,1,0)
 	_complete_grid()
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
@@ -32,7 +35,7 @@ func _summon_knight():
 		var box = knight_enemy.instantiate()
 		add_child(box)	
 func _physics_process(_delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_released("mouse_left") and not $Control/Button._is_dragging:
 		var space_state = get_world_2d().direct_space_state
 		var mouse_pos:Vector2 = get_viewport().get_mouse_position()
 		var origin:Vector2 = Vector2(mouse_pos.x-320,mouse_pos.y)
@@ -41,11 +44,21 @@ func _physics_process(_delta):
 		query.collide_with_areas = true
 		query.hit_from_inside = true
 		var rayResult:Dictionary = space_state.intersect_ray(query)
+		var co:CollisionObject2D = rayResult.get("collider")
 		if rayResult.size() > 0:
-			#print(rayResult)
-			var co:CollisionObject2D = rayResult.get("collider")
-			print(co.get_groups())
-			
+			if co.get_groups()[0] == "empty":
+				$SolTarafProje.visible = false
+				$Control/Button.disabled = false
+				$Control/Button.self_modulate = Color(1,1,1,1)
+			else:
+				$SolTarafProje.visible = true
+				$Control/Button.disabled = true
+				$Control/Button.self_modulate = Color(1,1,1,0)
+		else:
+			$SolTarafProje.visible = true
+			$Control/Button.disabled = true
+			$Control/Button.self_modulate = Color(1,1,1,0)
+
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_lenght):
 		for y in range (PathGenInstance.path_config.map_height+7):
