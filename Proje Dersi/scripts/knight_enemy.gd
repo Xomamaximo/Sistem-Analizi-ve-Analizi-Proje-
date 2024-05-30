@@ -8,7 +8,7 @@ var peasent_heal:int = 300
 func _ready():
 	curve_2d = Curve2D.new()
 	for element in PathGenInstance.get_path_reversed():
-		curve_2d.add_point(Vector2(element.x*48+24, element.y*48+24)) 
+		curve_2d.add_point(Vector2(element.x*48+24, element.y*48+24))
 	$Path2D.curve = curve_2d
 	$Path2D/PathFollow2D.progress_ratio = 0
 
@@ -35,6 +35,7 @@ func _on_travelling_state_processing(delta):
 		$EnemyStateChart.send_event("to_dying")
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
 		print("knight reached")
+		print($Path2D/PathFollow2D.progress_ratio)
 		$EnemyStateChart.send_event("to_despawning")
 
 

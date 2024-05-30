@@ -24,16 +24,17 @@ func _ready():
 	_summon_knight()
 	
 func _summon_peasant():
-	for i in 20:
+	for i in 1:
 		await get_tree().create_timer(2).timeout
 		var box = peasent_enemy.instantiate()
 		add_child(box)
 		
 func _summon_knight():
-	for i in 20:
+	for i in 0:
 		await get_tree().create_timer(2).timeout
 		var box = knight_enemy.instantiate()
 		add_child(box)	
+		
 func _physics_process(_delta):
 	if Input.is_action_just_released("mouse_left") and not $Control/Button._is_dragging:
 		var space_state = get_world_2d().direct_space_state
