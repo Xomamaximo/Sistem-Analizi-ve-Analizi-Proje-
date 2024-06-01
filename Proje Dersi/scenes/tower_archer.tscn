@@ -15,10 +15,12 @@ script = ExtResource("1_0dfxk")
 [node name="Archer Tower" type="Sprite2D" parent="Base"]
 texture = ExtResource("1_i164h")
 
-[node name="Mover" type="Node2D" parent="."]
+[node name="Shooter" type="Node2D" parent="."]
+position = Vector2(-0.5, -14)
+rotation = -1.5708
 
-[node name="Archer" type="Sprite2D" parent="Mover"]
-position = Vector2(-1, -14)
+[node name="Archer" type="Sprite2D" parent="Shooter"]
+rotation = 1.5708
 texture = ExtResource("2_omw55")
 offset = Vector2(2.5, -6)
 
