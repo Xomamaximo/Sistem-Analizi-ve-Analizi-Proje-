@@ -7,3 +7,6 @@ res://scenes/enemy_peasent.tscn
 res://scenes/enemy_knight.tscn
 res://scenes/activity_button.tscn
 res://scripts/main.gd
+res://scripts/tower_archer.gd
+res://scripts/knight_enemy.gd
+res://scripts/activity_button.gd

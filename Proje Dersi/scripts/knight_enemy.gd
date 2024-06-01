@@ -35,7 +35,7 @@ func _on_travelling_state_processing(delta):
 		$EnemyStateChart.send_event("to_dying")
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
 		print("knight reached")
-		print($Path2D/PathFollow2D.progress_ratio)
+		print("ilerleme yüzde: ",$Path2D/PathFollow2D.progress_ratio*100)
 		$EnemyStateChart.send_event("to_despawning")
 
 

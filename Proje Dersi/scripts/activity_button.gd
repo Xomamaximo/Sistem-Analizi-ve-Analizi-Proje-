@@ -11,6 +11,7 @@ var _cam: Camera2D
 func _ready():
 	icon = activity_button_icon
 	_draggable = activity_draggable.instantiate()
+	_draggable.set_patrolling(false)
 	add_child(_draggable)
 	_cam = get_viewport().get_camera_2d()
 	_draggable.visible = false

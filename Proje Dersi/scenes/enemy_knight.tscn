@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8ijmsv4heh5c"]
+[gd_scene load_steps=12 format=3 uid="uid://b8ijmsv4heh5c"]
 
 [ext_resource type="Script" path="res://scripts/knight_enemy.gd" id="1_e14sh"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_a0wat"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_he0xf"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_wpf21"]
 [ext_resource type="Texture2D" uid="uid://dd26ejskh88dt" path="res://assets/enemy_knight.png" id="6_8ad5j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_036q2"]
+size = Vector2(27, 46)
 
 [sub_resource type="Animation" id="Animation_0bqmu"]
 resource_name = "despawning"
@@ -105,6 +108,14 @@ loop = false
 [node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
 texture = ExtResource("6_8ad5j")
 offset = Vector2(0, -12)
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(2.5, -11)
+shape = SubResource("RectangleShape2D_036q2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
