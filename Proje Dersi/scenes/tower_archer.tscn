@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://w4nhuk5jg1qy"]
 
 [ext_resource type="Texture2D" uid="uid://crc2khhkbvwx2" path="res://assets/archer_tower1.png" id="1_i164h"]
-[ext_resource type="Texture2D" uid="uid://djjig7wguw0un" path="res://assets/icon.svg" id="2_w2s0j"]
+[ext_resource type="Texture2D" uid="uid://c1s8dj7sndkyr" path="res://assets/Archer.png" id="2_omw55"]
 
 [node name="tower_archer" type="Node2D"]
 
-[node name="Tower" type="Node2D" parent="."]
+[node name="Base" type="Node2D" parent="."]
 
-[node name="ArcherTower1" type="Sprite2D" parent="Tower"]
+[node name="Archer Tower" type="Sprite2D" parent="Base"]
 texture = ExtResource("1_i164h")
 
-[node name="Archer" type="Node2D" parent="."]
+[node name="Mover" type="Node2D" parent="."]
 
-[node name="Icon" type="Sprite2D" parent="Archer"]
-position = Vector2(0, -20)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_w2s0j")
+[node name="Archer" type="Sprite2D" parent="Mover"]
+position = Vector2(-1, -14)
+texture = ExtResource("2_omw55")
+offset = Vector2(2.5, -6)

@@ -11,7 +11,8 @@ extends Node2D
 var RAYCAST_LENGTH:float = 100
 
 func _ready():
-	$SolTarafProje.visible = true
+	$SolTarafProje/Banka1.visible = true
+	$SolTarafProje/Carpentryy.visible = true
 	$Control/Button.disabled = true
 	$Control/Button.self_modulate = Color(1,1,1,0)
 	_complete_grid()
@@ -48,15 +49,18 @@ func _physics_process(_delta):
 		var co:CollisionObject2D = rayResult.get("collider")
 		if rayResult.size() > 0:
 			if co.get_groups()[0] == "empty":
-				$SolTarafProje.visible = false
+				$SolTarafProje/Banka1.visible = false
+				$SolTarafProje/Carpentryy.visible = false
 				$Control/Button.disabled = false
 				$Control/Button.self_modulate = Color(1,1,1,1)
 			else:
-				$SolTarafProje.visible = true
+				$SolTarafProje/Banka1.visible = true
+				$SolTarafProje/Carpentryy.visible = true
 				$Control/Button.disabled = true
 				$Control/Button.self_modulate = Color(1,1,1,0)
 		else:
-			$SolTarafProje.visible = true
+			$SolTarafProje/Banka1.visible = true
+			$SolTarafProje/Carpentryy.visible = true
 			$Control/Button.disabled = true
 			$Control/Button.self_modulate = Color(1,1,1,0)
 
