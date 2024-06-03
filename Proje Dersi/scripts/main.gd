@@ -15,6 +15,8 @@ func _ready():
 	$SolTarafProje/Carpentryy.visible = true
 	$Control/Button.disabled = true
 	$Control/Button.self_modulate = Color(1,1,1,0)
+	$Control/ActivityButton.disabled = true
+	$Control/ActivityButton.self_modulate = Color(1,1,1,0)
 	_complete_grid()
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
@@ -48,21 +50,27 @@ func _physics_process(_delta):
 		var rayResult:Dictionary = space_state.intersect_ray(query)
 		var co:CollisionObject2D = rayResult.get("collider")
 		if rayResult.size() > 0:
-			if co.get_groups()[0] == "empty":
+			if co.get_groups()[0] == "empty" and co.get_groups()[co.get_groups().size()-1]!="kule":
 				$SolTarafProje/Banka1.visible = false
 				$SolTarafProje/Carpentryy.visible = false
 				$Control/Button.disabled = false
 				$Control/Button.self_modulate = Color(1,1,1,1)
+				$Control/ActivityButton.disabled = false
+				$Control/ActivityButton.self_modulate = Color(1,1,1,1)
 			else:
 				$SolTarafProje/Banka1.visible = true
 				$SolTarafProje/Carpentryy.visible = true
 				$Control/Button.disabled = true
 				$Control/Button.self_modulate = Color(1,1,1,0)
+				$Control/ActivityButton.disabled = true
+				$Control/ActivityButton.self_modulate = Color(1,1,1,0)
 		else:
 			$SolTarafProje/Banka1.visible = true
 			$SolTarafProje/Carpentryy.visible = true
 			$Control/Button.disabled = true
 			$Control/Button.self_modulate = Color(1,1,1,0)
+			$Control/ActivityButton.disabled = true
+			$Control/ActivityButton.self_modulate = Color(1,1,1,0)
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_lenght):

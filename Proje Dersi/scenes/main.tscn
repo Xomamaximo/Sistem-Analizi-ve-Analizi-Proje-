@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=17 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dwm0g6f7s5bkp" path="res://assets/Carpentryy.png" id="9_j1oin"]
 [ext_resource type="Texture2D" uid="uid://buhh8lqojuj0l" path="res://assets/banka1.png" id="10_xo0ap"]
 [ext_resource type="Texture2D" uid="uid://c1s8dj7sndkyr" path="res://assets/Archer.png" id="11_eq6gh"]
-[ext_resource type="PackedScene" uid="uid://c11sooqyr6ega" path="res://scenes/activity_button.tscn" id="11_h0omi"]
+[ext_resource type="PackedScene" uid="uid://c11sooqyr6ega" path="res://scenes/archer_button.tscn" id="11_h0omi"]
 [ext_resource type="Texture2D" uid="uid://dmmvi5phq885e" path="res://assets/main_menu.png" id="13_2m8lj"]
 [ext_resource type="PackedScene" uid="uid://w4nhuk5jg1qy" path="res://scenes/tower_archer.tscn" id="13_alqat"]
+[ext_resource type="PackedScene" uid="uid://ckes74ovbag7" path="res://scenes/cannon_button.tscn" id="13_sqdfo"]
+[ext_resource type="Texture2D" uid="uid://ci10w7252lc30" path="res://assets/Cannon.png" id="14_toe6k"]
+[ext_resource type="PackedScene" uid="uid://bge3w1250yufh" path="res://scenes/cannon_tower.tscn" id="15_vv8qd"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -63,6 +66,20 @@ grow_vertical = 2
 activity_button_icon = ExtResource("11_eq6gh")
 activity_draggable = ExtResource("13_alqat")
 metadata/_edit_use_anchors_ = true
+
+[node name="ActivityButton" parent="Control" instance=ExtResource("13_sqdfo")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.606
+anchor_top = 0.416
+anchor_right = 0.606
+anchor_bottom = 0.416
+offset_left = -55.3444
+offset_top = -56.52
+offset_right = 55.6556
+offset_bottom = 58.48
+activity_button_icon = ExtResource("14_toe6k")
+activity_draggable = ExtResource("15_vv8qd")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 visible = false
