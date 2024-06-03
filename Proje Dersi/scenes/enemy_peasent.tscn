@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdrq1bc30emp5"]
+[gd_scene load_steps=13 format=3 uid="uid://bdrq1bc30emp5"]
 
 [ext_resource type="Script" path="res://scripts/peasent_enemy.gd" id="1_yo3qw"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_0amji"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_ar2s1"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_g4362"]
 [ext_resource type="Texture2D" uid="uid://bb5n560o4fajd" path="res://assets/enemy_farmer.png" id="6_o8dol"]
+[ext_resource type="AudioStream" uid="uid://c5bjkpkhw11ov" path="res://audio/death.mp3" id="7_wt5rg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wb2nf"]
 size = Vector2(28, 47)
@@ -123,6 +124,10 @@ shape = SubResource("RectangleShape2D_wb2nf")
 libraries = {
 "": SubResource("AnimationLibrary_8r1p1")
 }
+
+[node name="deathsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wt5rg")
+bus = &"FX"
 
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/spawning" to="." method="_on_spawning_state_entered"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_entered"]
