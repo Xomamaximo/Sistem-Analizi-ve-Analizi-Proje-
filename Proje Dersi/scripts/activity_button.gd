@@ -68,7 +68,6 @@ func disable_collision(n:Node):
 
 func set_sprite_color (sprite_2d:Sprite2D,renk):
 	sprite_2d.modulate = Color(renk)
-	
 
 
 func _on_button_down():
