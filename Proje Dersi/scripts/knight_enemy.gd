@@ -47,6 +47,7 @@ func _on_despawning_state_entered():
 
 
 func _on_dying_state_entered():
+	$deathsound.play()
 	$AnimationPlayer.play("dying") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free() # Replace with function body.
