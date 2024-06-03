@@ -22,11 +22,13 @@ func _ready():
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
 
-	await get_tree().create_timer(0.5).timeout
-	_summon_peasant()
-	await get_tree().create_timer(1).timeout
-	_summon_knight()
-	
+func _process(delta):
+		if Resources.new_round == true:
+			Resources.new_round = false
+			_summon_peasant()
+			await get_tree().create_timer(1).timeout
+			_summon_knight()
+
 func _summon_peasant():
 	for i in Resources.peasent_total:
 		await get_tree().create_timer(2).timeout

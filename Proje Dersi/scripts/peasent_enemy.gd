@@ -44,6 +44,7 @@ func _on_travelling_state_processing(delta):
 func _on_despawning_state_entered():
 	enemy_finished.emit()
 	Resources.game_health -= 1
+	Resources.peasent_left -= 1
 	print(Resources.game_health)
 	$AnimationPlayer.play("despawning") # Replace with function body.
 	await $AnimationPlayer.animation_finished
