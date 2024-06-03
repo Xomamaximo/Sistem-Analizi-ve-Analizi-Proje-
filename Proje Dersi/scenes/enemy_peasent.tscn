@@ -106,15 +106,17 @@ rotates = false
 loop = false
 
 [node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_o8dol")
-offset = Vector2(0, -12)
+offset = Vector2(0, -8)
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
-position = Vector2(2, -11.5)
+position = Vector2(2, -6)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_wb2nf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -127,3 +129,4 @@ libraries = {
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_processing"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/dying" to="." method="_on_dying_state_entered"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/despawning" to="." method="_on_despawning_state_entered"]
+[connection signal="area_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -25,7 +25,7 @@ func _ready():
 	_summon_knight()
 	
 func _summon_peasant():
-	for i in 3:
+	for i in 10:
 		await get_tree().create_timer(2).timeout
 		var box = peasent_enemy.instantiate()
 		add_child(box)

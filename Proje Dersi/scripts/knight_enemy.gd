@@ -2,8 +2,8 @@ extends Node2D
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var peasent_speed:float = 60
-var peasent_heal:int = 300
+var speed:float = 60
+var health:int = 300
 
 func _ready():
 	curve_2d = Curve2D.new()
@@ -20,17 +20,17 @@ func _process(delta):
 
 
 func _on_spawning_state_entered():
-	$AnimationPlayer.play("spawning")
-	await $AnimationPlayer.animation_finished
+	#$AnimationPlayer.play("spawning")
+	#await $AnimationPlayer.animation_finished
 	$EnemyStateChart.send_event("to_travelling") # Replace with function body.
 
 func _on_travelling_state_entered():
 	pass
 
 func _on_travelling_state_processing(delta):
-	peasent_progress += delta * peasent_speed
+	peasent_progress += delta * speed
 	$Path2D/PathFollow2D.progress = peasent_progress
-	if peasent_heal <= 0:
+	if health <= 0:
 		print("peasent died")
 		$EnemyStateChart.send_event("to_dying")
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
@@ -49,3 +49,8 @@ func _on_dying_state_entered():
 	$AnimationPlayer.play("dying") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free() # Replace with function body.
+
+
+func _on_area_2d_area_entered(area):
+	if area is Projectile:
+		print(area.damage)

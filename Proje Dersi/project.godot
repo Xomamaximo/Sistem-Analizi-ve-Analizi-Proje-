@@ -47,6 +47,7 @@ mouse_left={
 
 2d_physics/layer_1="Path"
 2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Projectiles"
 
 [rendering]
 
