@@ -107,6 +107,7 @@ rotates = false
 loop = false
 
 [node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_o8dol")
 offset = Vector2(0, -6)
 

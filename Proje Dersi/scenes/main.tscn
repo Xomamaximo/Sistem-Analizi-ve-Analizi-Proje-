@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0lxol8nygl18" path="res://scenes/path_corner.tscn" id="4_omtn4"]
 [ext_resource type="PackedScene" uid="uid://bdrq1bc30emp5" path="res://scenes/enemy_peasent.tscn" id="5_bwx4i"]
 [ext_resource type="PackedScene" uid="uid://b8ijmsv4heh5c" path="res://scenes/enemy_knight.tscn" id="6_je7qo"]
-[ext_resource type="Texture2D" uid="uid://ddeyaeux1qrhl" path="res://assets/sol taraf proje.png" id="7_2j1e4"]
+[ext_resource type="Texture2D" uid="uid://diksa5w0wmp7f" path="res://assets/sol taraf proje_new.png" id="7_45cao"]
 [ext_resource type="Texture2D" uid="uid://dwm0g6f7s5bkp" path="res://assets/Carpentryy.png" id="9_j1oin"]
 [ext_resource type="Texture2D" uid="uid://buhh8lqojuj0l" path="res://assets/banka1.png" id="10_xo0ap"]
 [ext_resource type="Texture2D" uid="uid://c1s8dj7sndkyr" path="res://assets/Archer.png" id="11_eq6gh"]
@@ -32,7 +32,7 @@ offset = Vector2(320, 360)
 
 [node name="SolTarafProje" type="Sprite2D" parent="."]
 position = Vector2(-320, 0)
-texture = ExtResource("7_2j1e4")
+texture = ExtResource("7_45cao")
 centered = false
 
 [node name="Banka1" type="Sprite2D" parent="SolTarafProje"]
@@ -92,9 +92,9 @@ offset_bottom = 723.0
 [node name="Gold_Label" type="Label" parent="Control2"]
 top_level = true
 layout_mode = 1
-offset_left = 108.0
+offset_left = 43.0
 offset_top = 32.0
-offset_right = 859.0
+offset_right = 868.0
 offset_bottom = 85.0
 vertical_alignment = 1
 script = ExtResource("16_ib083")
