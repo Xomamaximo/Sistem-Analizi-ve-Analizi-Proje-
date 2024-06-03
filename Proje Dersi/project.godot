@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 PathGenInstance="*res://scripts/path_generator.gd"
+Resources="*res://scripts/resources.gd"
 
 [display]
 
@@ -49,6 +50,7 @@ mouse_left={
 2d_physics/layer_1="Path"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Projectiles"
+2d_physics/layer_4="Tower"
 
 [rendering]
 

@@ -1,18 +1,14 @@
+Label
+HBoxContainer
+Control
 AudioStreamPlayer
 CollisionShape2D
 Area2D
-<<<<<<< HEAD
-AudioStreamPlayer
-=======
->>>>>>> a871e7f65ce26de68d2a268811aafaecaf675931
 Node2D
 Node
 AnimatedSprite2D
 Sprite2D
 StateChart
-Control
 Button
 MeshInstance2D
 PathFollow2D
-Path2D
-ColorRect

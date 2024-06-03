@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bge3w1250yufh"]
+[gd_scene load_steps=11 format=3 uid="uid://bge3w1250yufh"]
 
-[ext_resource type="Script" path="res://scripts/tower_archer.gd" id="1_t1rwe"]
+[ext_resource type="Script" path="res://scripts/tower_cannon.gd" id="1_1rc2c"]
 [ext_resource type="PackedScene" uid="uid://thkyltf0muwt" path="res://scenes/cannonball.tscn" id="2_5vff5"]
 [ext_resource type="Texture2D" uid="uid://dwgtx8k46gxxf" path="res://assets/Cannon_Tower.png" id="3_d7mga"]
 [ext_resource type="Texture2D" uid="uid://ci10w7252lc30" path="res://assets/Cannon.png" id="4_o8ruf"]
@@ -8,13 +8,13 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="6_l0fhu"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="7_qaark"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="8_2cl75"]
+[ext_resource type="AudioStream" uid="uid://bsyfuvqjchls7" path="res://audio/cannon.mp3" id="8_pcsjg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqvlc"]
 radius = 140.0
 
 [node name="cannon_tower" type="Node2D"]
-script = ExtResource("1_t1rwe")
-fire_rate_ms = 1500
+script = ExtResource("1_1rc2c")
 projectile_type = ExtResource("2_5vff5")
 
 [node name="Base" type="Node2D" parent="."]
@@ -76,6 +76,10 @@ script = ExtResource("7_qaark")
 script = ExtResource("8_2cl75")
 to = NodePath("../../Patrolling")
 event = &"to_patrolling"
+
+[node name="CannonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pcsjg")
+volume_db = -21.0
 
 [connection signal="area_entered" from="PatrolZone" to="." method="_on_patrol_zone_area_entered"]
 [connection signal="area_exited" from="PatrolZone" to="." method="_on_patrol_zone_area_exited"]

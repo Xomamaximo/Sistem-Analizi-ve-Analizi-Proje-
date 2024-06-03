@@ -125,7 +125,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8r1p1")
 }
 
-[node name="deathsound" type="AudioStreamPlayer" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_tfij0")
 bus = &"FX"
 

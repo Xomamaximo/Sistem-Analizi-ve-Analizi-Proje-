@@ -86,7 +86,7 @@ func maybe_fire():
 		_set_enemy_dying()
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
 		#print("Fire!!")
-		$ArrowSound.play()
+		$CannonSound.play()
 		var projectile:Projectile = projectile_type.instantiate()
 		projectile.starting_position = $Shooter/projectile_spawn.global_position
 		projectile.target = current_enemy

@@ -83,4 +83,5 @@ func _on_button_up():
 	if _is_valid_location:
 		var activity = activity_draggable.instantiate()
 		add_child(activity)
+		$BuildingSound.play()
 		activity.global_position = _last_valid_location

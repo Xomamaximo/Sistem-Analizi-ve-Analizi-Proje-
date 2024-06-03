@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=18 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ckes74ovbag7" path="res://scenes/cannon_button.tscn" id="13_sqdfo"]
 [ext_resource type="Texture2D" uid="uid://ci10w7252lc30" path="res://assets/Cannon.png" id="14_toe6k"]
 [ext_resource type="PackedScene" uid="uid://bge3w1250yufh" path="res://scenes/cannon_tower.tscn" id="15_vv8qd"]
+[ext_resource type="Script" path="res://scripts/gold_sign.gd" id="16_ib083"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -58,10 +59,10 @@ anchor_left = 0.215915
 anchor_top = 0.416389
 anchor_right = 0.215915
 anchor_bottom = 0.416389
-offset_left = -49.956
-offset_top = -49.8
-offset_right = 50.044
-offset_bottom = 50.2
+offset_left = -49.9566
+offset_top = -49.8001
+offset_right = 50.0434
+offset_bottom = 50.1999
 grow_vertical = 2
 activity_button_icon = ExtResource("11_eq6gh")
 activity_draggable = ExtResource("13_alqat")
@@ -74,12 +75,28 @@ anchor_left = 0.606
 anchor_top = 0.416
 anchor_right = 0.606
 anchor_bottom = 0.416
-offset_left = -55.3444
-offset_top = -56.52
-offset_right = 55.6556
-offset_bottom = 58.48
+offset_left = -51.3444
+offset_top = -49.52
+offset_right = 48.6556
+offset_bottom = 50.48
 activity_button_icon = ExtResource("14_toe6k")
 activity_draggable = ExtResource("15_vv8qd")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 64.0
+
+[node name="Gold_Label" type="Label" parent="Control2"]
+top_level = true
+layout_mode = 1
+offset_left = 108.0
+offset_top = 32.0
+offset_right = 859.0
+offset_bottom = 85.0
+vertical_alignment = 1
+script = ExtResource("16_ib083")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 visible = false

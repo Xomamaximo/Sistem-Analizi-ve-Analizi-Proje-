@@ -43,6 +43,8 @@ func _on_travelling_state_processing(delta):
 
 func _on_despawning_state_entered():
 	enemy_finished.emit()
+	Resources.game_health -= 1
+	print(Resources.game_health)
 	$AnimationPlayer.play("despawning") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free()
@@ -50,7 +52,9 @@ func _on_despawning_state_entered():
 
 func _on_dying_state_entered():
 	enemy_finished.emit()
-	$ExplosionAudio.play()
+	Resources.peasent_left -= 1
+	Resources.gold += 10 * Resources.gold_multiplier
+	$DeathSound.play()
 	$AnimationPlayer.play("dying") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free() # Replace with function body.

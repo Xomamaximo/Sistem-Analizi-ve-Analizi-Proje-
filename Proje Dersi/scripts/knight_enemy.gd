@@ -3,6 +3,8 @@ class_name Knight
 
 var Enemy_Config:enemyconfigfile = preload("res://Resource/basic_enemy_config.res")
 
+signal  enemy_finished
+
 var curve_2d:Curve2D
 var peasent_progress:float = 0
 var speed:float = Enemy_Config.knight_speed
@@ -41,13 +43,19 @@ func _on_travelling_state_processing(delta):
 
 
 func _on_despawning_state_entered():
+	enemy_finished.emit()
+	Resources.game_health -= 1
+	print(Resources.game_health)
 	$AnimationPlayer.play("despawning") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free()
 
 
 func _on_dying_state_entered():
-	$deathsound.play()
+	enemy_finished.emit()
+	Resources.knight_left -= 1
+	Resources.gold += 10 * Resources.gold_multiplier
+	$DeathSound.play()
 	$AnimationPlayer.play("dying") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free() # Replace with function body.

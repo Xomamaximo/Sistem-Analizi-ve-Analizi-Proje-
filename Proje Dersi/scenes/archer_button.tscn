@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c11sooqyr6ega"]
+[gd_scene load_steps=4 format=3 uid="uid://c11sooqyr6ega"]
 
 [ext_resource type="Script" path="res://scripts/activity_button.gd" id="1_1pxn0"]
+[ext_resource type="AudioStream" uid="uid://jxfj3yumbc3m" path="res://audio/build.mp3" id="2_8hs7d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k55sq"]
 
@@ -12,6 +13,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_k55sq")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_1pxn0")
+
+[node name="BuildingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8hs7d")
+volume_db = -15.0
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -5,6 +5,7 @@ extends Node2D
 @export var tile_corner:PackedScene
 @export var peasent_enemy:PackedScene
 @export var knight_enemy:PackedScene
+
 #var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 @onready var cam = $Camera2D
 
@@ -27,13 +28,13 @@ func _ready():
 	_summon_knight()
 	
 func _summon_peasant():
-	for i in 10:
+	for i in Resources.peasent_total:
 		await get_tree().create_timer(2).timeout
 		var box = peasent_enemy.instantiate()
 		add_child(box)
 		
 func _summon_knight():
-	for i in 0:
+	for i in Resources.knight_total:
 		await get_tree().create_timer(2).timeout
 		var box = knight_enemy.instantiate()
 		add_child(box)	
