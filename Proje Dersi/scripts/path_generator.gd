@@ -4,7 +4,6 @@ class_name PathGenerator
 var path_config:pathgeneratorconfig = preload("res://Resource/basic_path_config.res")
 
 
-
 var zorluk_tablosu = {"kolay":50, "orta":36 , "zor":25  } 
 
 var _path_route: Array[Vector2i]

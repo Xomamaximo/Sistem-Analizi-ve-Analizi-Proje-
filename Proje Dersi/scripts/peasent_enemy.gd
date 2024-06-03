@@ -1,9 +1,14 @@
 extends Node2D
+class_name Enemy
+
+var Enemy_Config:enemyconfigfile = preload("res://Resource/basic_enemy_config.res")
+
+signal  enemy_finished
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var speed:float = 80
-var health:int = 100
+var speed:float = Enemy_Config.peasant_speed
+var health:int = Enemy_Config.peasant_health
 
 func _ready():
 	curve_2d = Curve2D.new()
@@ -30,21 +35,22 @@ func _on_travelling_state_entered():
 func _on_travelling_state_processing(delta):
 	peasent_progress += delta * speed
 	$Path2D/PathFollow2D.progress = peasent_progress
-	if health <= 0:
-		print("peasent died")
-		$EnemyStateChart.send_event("to_dying")
+	
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
 		print("peasant reached")
 		$EnemyStateChart.send_event("to_despawning")
 
 
 func _on_despawning_state_entered():
+	enemy_finished.emit()
 	$AnimationPlayer.play("despawning") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free()
 
 
 func _on_dying_state_entered():
+	enemy_finished.emit()
+	$ExplosionAudio.play()
 	$AnimationPlayer.play("dying") # Replace with function body.
 	await $AnimationPlayer.animation_finished
 	queue_free() # Replace with function body.
@@ -55,4 +61,4 @@ func _on_area_2d_area_entered(area):
 		health -= area.damage
 	
 	if health <= 0:
-		queue_free()
+		$EnemyStateChart.send_event("to_dying")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://w4nhuk5jg1qy"]
+[gd_scene load_steps=11 format=3 uid="uid://w4nhuk5jg1qy"]
 
 [ext_resource type="Script" path="res://scripts/tower_archer.gd" id="1_0dfxk"]
 [ext_resource type="Texture2D" uid="uid://crc2khhkbvwx2" path="res://assets/archer_tower1.png" id="1_i164h"]
@@ -9,12 +9,21 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_dkne7"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_06jpv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4610"]
+size = Vector2(48, 48)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqvlc"]
 radius = 180.0
 
 [node name="tower_archer" type="Node2D"]
 script = ExtResource("1_0dfxk")
 projectile_type = ExtResource("2_8q2tp")
+
+[node name="Area2D" type="Area2D" parent="." groups=["tower"]]
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f4610")
 
 [node name="Base" type="Node2D" parent="."]
 

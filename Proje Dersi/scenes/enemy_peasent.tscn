@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdrq1bc30emp5"]
+[gd_scene load_steps=13 format=3 uid="uid://bdrq1bc30emp5"]
 
 [ext_resource type="Script" path="res://scripts/peasent_enemy.gd" id="1_yo3qw"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_0amji"]
@@ -6,9 +6,10 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_ar2s1"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_g4362"]
 [ext_resource type="Texture2D" uid="uid://bb5n560o4fajd" path="res://assets/enemy_farmer.png" id="6_o8dol"]
+[ext_resource type="AudioStream" uid="uid://btmuyvs2fcrlr" path="res://audio/punch-body-hit-joshua-chivers-2-2-00-00.mp3" id="7_13b4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wb2nf"]
-size = Vector2(28, 47)
+size = Vector2(28, 48)
 
 [sub_resource type="Animation" id="Animation_0bqmu"]
 resource_name = "despawning"
@@ -108,14 +109,14 @@ loop = false
 [node name="ProjeTilesEnemy1" type="Sprite2D" parent="Path2D/PathFollow2D"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_o8dol")
-offset = Vector2(0, -8)
+offset = Vector2(0, -6)
 
-[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
-position = Vector2(2, -6)
+position = Vector2(2, -5)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_wb2nf")
 
@@ -123,6 +124,10 @@ shape = SubResource("RectangleShape2D_wb2nf")
 libraries = {
 "": SubResource("AnimationLibrary_8r1p1")
 }
+
+[node name="ExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_13b4t")
+bus = &"FX"
 
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/spawning" to="." method="_on_spawning_state_entered"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_entered"]

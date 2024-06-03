@@ -2,6 +2,7 @@ extends Node2D
 
 var enemies_in_range: Array[Node2D]
 var current_enemy:Node2D = null
+var current_enemy_class:Enemy = null
 var current_enemy_targeted:bool = false
 var acquire_slerp_progress: float = 0
 var last_fire_time:int
@@ -35,13 +36,27 @@ func rotate_towards_target(rtarget, delta):
 	if acquire_slerp_progress > 1:
 		$StateChart.send_event("to_attacking")
 
+func _find_enemy_parent(n:Node):
+	if n is Enemy or n is Knight:
+		return n
+	elif n.get_parent() != null:
+		return _find_enemy_parent(n.get_parent())
+	else:
+		return null
 
 func _on_patrolling_state_processing(_delta):
 	if enemies_in_range.size() > 0:
 		#current_enemy = enemies_in_range[enemies_in_range.size()-1]
 		current_enemy = enemies_in_range[0]
+		current_enemy_class = _find_enemy_parent(current_enemy)
+		current_enemy_class.enemy_finished.connect(_set_enemy_dying)
 		$StateChart.send_event("to_acquiring")
 
+
+func _set_enemy_dying():
+	if current_enemy!= null and enemies_in_range.has(current_enemy):
+		if enemies_in_range[0] == current_enemy:
+			enemies_in_range.erase(current_enemy)
 
 func _on_acquiring_state_entered():
 	current_enemy_targeted = false
@@ -67,6 +82,8 @@ func _on_attacking_state_physics_processing(_delta):
 		$StateChart.send_event("to_patrolling")
 
 func maybe_fire():
+	if current_enemy!= null and current_enemy_class.health <= 0:
+		_set_enemy_dying()
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
 		#print("Fire!!")
 		var projectile:Projectile = projectile_type.instantiate()

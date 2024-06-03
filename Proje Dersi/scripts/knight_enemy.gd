@@ -1,9 +1,12 @@
 extends Node2D
+class_name Knight
+
+var Enemy_Config:enemyconfigfile = preload("res://Resource/basic_enemy_config.res")
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var speed:float = 60
-var health:int = 300
+var speed:float = Enemy_Config.knight_speed
+var health:int = Enemy_Config.knight_health
 
 func _ready():
 	curve_2d = Curve2D.new()
@@ -30,9 +33,7 @@ func _on_travelling_state_entered():
 func _on_travelling_state_processing(delta):
 	peasent_progress += delta * speed
 	$Path2D/PathFollow2D.progress = peasent_progress
-	if health <= 0:
-		print("peasent died")
-		$EnemyStateChart.send_event("to_dying")
+	
 	if peasent_progress >= (PathGenInstance.get_path_route().size())*48:
 		print("knight reached")
 		print("ilerleme yüzde: ",$Path2D/PathFollow2D.progress_ratio*100)
@@ -53,4 +54,8 @@ func _on_dying_state_entered():
 
 func _on_area_2d_area_entered(area):
 	if area is Projectile:
-		print(area.damage)
+		health -= area.damage
+	
+	if health <= 0:
+		$EnemyStateChart.send_event("to_dying")
+		
