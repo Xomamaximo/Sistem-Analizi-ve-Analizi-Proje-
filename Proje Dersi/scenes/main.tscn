@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=20 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -17,7 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://ci10w7252lc30" path="res://assets/Cannon.png" id="14_toe6k"]
 [ext_resource type="PackedScene" uid="uid://bge3w1250yufh" path="res://scenes/cannon_tower.tscn" id="15_vv8qd"]
 [ext_resource type="Script" path="res://scripts/gold_sign.gd" id="16_ib083"]
-[ext_resource type="Script" path="res://scenes/Round_Button.gd" id="17_siftm"]
+[ext_resource type="Script" path="res://scripts/Round_Button.gd" id="17_siftm"]
+[ext_resource type="Script" path="res://scripts/MenuButton.gd" id="18_l3gnq"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -86,6 +87,7 @@ activity_draggable = ExtResource("15_vv8qd")
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 1.0
 offset_right = 962.0
 offset_bottom = 723.0
 
@@ -108,6 +110,15 @@ offset_right = 932.0
 offset_bottom = 688.0
 script = ExtResource("17_siftm")
 
+[node name="MenuButton" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 18.0
+offset_right = -188.0
+offset_bottom = 55.0
+text = "Menüye Dön"
+script = ExtResource("18_l3gnq")
+
 [node name="MainMenu" type="Sprite2D" parent="."]
 visible = false
 top_level = true
@@ -116,3 +127,4 @@ texture = ExtResource("13_2m8lj")
 centered = false
 
 [connection signal="button_down" from="Control2/Round_Button" to="Control2/Round_Button" method="_on_button_down"]
+[connection signal="pressed" from="Control2/MenuButton" to="Control2/MenuButton" method="_on_pressed"]

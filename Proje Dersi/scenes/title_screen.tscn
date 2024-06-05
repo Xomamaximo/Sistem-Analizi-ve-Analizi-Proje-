@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubmsrkxgqmul"]
+
+[ext_resource type="Script" path="res://TitileScreen.gd" id="1_hjkjo"]
+[ext_resource type="Texture2D" uid="uid://bbwq605sj5t5u" path="res://assets/main_menu_new.png" id="2_kcam2"]
+[ext_resource type="Theme" uid="uid://xq1th67h5gd2" path="res://title_theme.tres" id="3_dhsvn"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjkjo")
+
+[node name="MainMenuNew" type="Sprite2D" parent="."]
+texture = ExtResource("2_kcam2")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_dhsvn")
+text = "Oyna"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_dhsvn")
+text = "Ayarlar
+"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_dhsvn")
+text = "Oyundan Çık"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

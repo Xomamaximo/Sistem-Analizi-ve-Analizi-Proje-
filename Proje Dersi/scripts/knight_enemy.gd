@@ -7,8 +7,8 @@ signal  enemy_finished
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var speed:float = Enemy_Config.knight_speed
-var health:int = Enemy_Config.knight_health
+var speed:float = 80
+var health:int = 150
 
 func _ready():
 	curve_2d = Curve2D.new()
@@ -45,7 +45,7 @@ func _on_travelling_state_processing(delta):
 func _on_despawning_state_entered():
 	enemy_finished.emit()
 	Resources.game_health -= 1
-	Resources.peasent_left -= 1
+	Resources.knight_left -= 1
 	print(Resources.game_health)
 	$AnimationPlayer.play("despawning") # Replace with function body.
 	await $AnimationPlayer.animation_finished
@@ -63,7 +63,7 @@ func _on_dying_state_entered():
 
 
 func _on_area_2d_area_entered(area):
-	if area is Projectile:
+	if area is ProjectileArrow or area is ProjectileArrow:
 		health -= area.damage
 	
 	if health <= 0:

@@ -31,7 +31,7 @@ func _physics_process(_delta):
 		if rayResult.size() > 0:
 			#print(rayResult)
 			var co:CollisionObject2D = rayResult.get("collider")
-			if co.get_groups().has("tower"):
+			if not Resources.wood >= 1 or not Resources.stone >= 1 or not Resources.iron >= 1:
 				_draggable.visible = true
 				_draggable.global_position = Vector2(co.global_position)
 				_is_valid_location = false
@@ -80,8 +80,11 @@ func _on_button_up():
 	_is_dragging = false
 	_draggable.visible = false
 	
-	if _is_valid_location:
+	if _is_valid_location and Resources.wood >= 1 and Resources.stone >= 1 and Resources.iron >= 1:
 		var activity = activity_draggable.instantiate()
 		add_child(activity)
+		Resources.wood -= 1
+		Resources.stone -= 1
+		Resources.iron -= 1
 		$BuildingSound.play()
 		activity.global_position = _last_valid_location

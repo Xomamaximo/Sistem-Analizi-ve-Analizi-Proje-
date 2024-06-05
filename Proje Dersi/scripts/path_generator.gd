@@ -9,10 +9,12 @@ var zorluk_tablosu = {"kolay":50, "orta":36 , "zor":25  }
 var _path_route: Array[Vector2i]
 var _path_reverse: Array[Vector2i]
 
-
 func _init():
+	zorluk_ayarla()
+
+func zorluk_ayarla():
 	generate_path()
-	while _path_route.size() <  zorluk_tablosu[path_config.zorluk] or  _path_route.size() >  zorluk_tablosu[path_config.zorluk] +5  :
+	while _path_route.size() <  zorluk_tablosu[Resources.secilenzorluk] or  _path_route.size() >  zorluk_tablosu[Resources.secilenzorluk] +5  :
 		generate_path()
 
 func generate_path():

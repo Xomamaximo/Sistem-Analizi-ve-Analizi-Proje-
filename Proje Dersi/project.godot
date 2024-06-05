@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Proje Dersi TD Oyunu"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
-PathGenInstance="*res://scripts/path_generator.gd"
 Resources="*res://scripts/resources.gd"
+PathGenInstance="*res://scripts/path_generator.gd"
 
 [display]
 

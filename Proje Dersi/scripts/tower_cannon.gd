@@ -7,7 +7,7 @@ var current_enemy_targeted:bool = false
 var acquire_slerp_progress: float = 0
 var last_fire_time:int
 
-@export var fire_rate_ms:int = 1000
+@export var fire_rate_ms:int = 1800
 @export var projectile_type:PackedScene
 
 func _on_patrol_zone_area_entered(area):
@@ -31,7 +31,7 @@ func set_patrolling(patrolling:bool):
 func rotate_towards_target(rtarget, delta):
 	var target_vector:Vector2 = rtarget.global_position
 	$Shooter.look_at($Shooter.global_position.slerp(target_vector, acquire_slerp_progress))
-	acquire_slerp_progress += delta * 2
+	acquire_slerp_progress += delta * 1
 	
 	if acquire_slerp_progress > 1:
 		$StateChart.send_event("to_attacking")
@@ -87,7 +87,7 @@ func maybe_fire():
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
 		#print("Fire!!")
 		$CannonSound.play()
-		var projectile:Projectile = projectile_type.instantiate()
+		var projectile:Area2D = projectile_type.instantiate()
 		projectile.starting_position = $Shooter/projectile_spawn.global_position
 		projectile.target = current_enemy
 		add_child(projectile)

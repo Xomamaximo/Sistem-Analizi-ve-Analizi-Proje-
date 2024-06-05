@@ -7,7 +7,7 @@ var current_enemy_targeted:bool = false
 var acquire_slerp_progress: float = 0
 var last_fire_time:int
 
-@export var fire_rate_ms:int = 1000
+@export var fire_rate_ms:int = 900
 @export var projectile_type:PackedScene
 
 func _on_patrol_zone_area_entered(area):
@@ -87,7 +87,7 @@ func maybe_fire():
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
 		#print("Fire!!")
 		$ArrowSound.play()
-		var projectile:Projectile = projectile_type.instantiate()
+		var projectile:Area2D = projectile_type.instantiate()
 		projectile.starting_position = $Shooter/projectile_spawn.global_position
 		projectile.target = current_enemy
 		add_child(projectile)

@@ -22,9 +22,9 @@ func _ready():
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
 
-func _process(delta):
-		if Resources.new_round == true:
-			Resources.new_round = false
+func _process(_delta):
+		if Resources.start_new_round == true:
+			Resources.start_new_round = false
 			_summon_peasant()
 			await get_tree().create_timer(1).timeout
 			_summon_knight()
@@ -76,6 +76,7 @@ func _physics_process(_delta):
 			$Control/ActivityButton.self_modulate = Color(1,1,1,0)
 
 func _complete_grid():
+	PathGenInstance.zorluk_ayarla()
 	for x in range(PathGenInstance.path_config.map_lenght):
 		for y in range (PathGenInstance.path_config.map_height+7):
 			if not PathGenInstance.get_path_route().has(Vector2i(x,y)):

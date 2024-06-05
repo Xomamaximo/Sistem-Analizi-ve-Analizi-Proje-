@@ -1,5 +1,5 @@
 extends Area2D
-class_name Projectile
+class_name ProjectileCannon
 
 var starting_position:Vector2
 var target:Node2D

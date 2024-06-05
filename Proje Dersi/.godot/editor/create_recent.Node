@@ -1,6 +1,9 @@
 Button
-Label
+Sprite2D
 HBoxContainer
+Label
+HSlider
+VBoxContainer
 Control
 AudioStreamPlayer
 CollisionShape2D
@@ -8,7 +11,4 @@ Area2D
 Node2D
 Node
 AnimatedSprite2D
-Sprite2D
 StateChart
-MeshInstance2D
-PathFollow2D

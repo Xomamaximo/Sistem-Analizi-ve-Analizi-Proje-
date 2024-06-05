@@ -7,8 +7,8 @@ signal  enemy_finished
 
 var curve_2d:Curve2D
 var peasent_progress:float = 0
-var speed:float = Enemy_Config.peasant_speed
-var health:int = Enemy_Config.peasant_health
+var speed:float = 120
+var health:int = 100
 
 func _ready():
 	curve_2d = Curve2D.new()
@@ -62,7 +62,7 @@ func _on_dying_state_entered():
 
 
 func _on_area_2d_area_entered(area):
-	if area is Projectile:
+	if area is ProjectileArrow or area is ProjectileCannon:
 		health -= area.damage
 	
 	if health <= 0:
