@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ubmsrkxgqmul"]
+[gd_scene load_steps=5 format=3 uid="uid://ubmsrkxgqmul"]
 
 [ext_resource type="Script" path="res://TitileScreen.gd" id="1_hjkjo"]
 [ext_resource type="Texture2D" uid="uid://bbwq605sj5t5u" path="res://assets/main_menu_new.png" id="2_kcam2"]
 [ext_resource type="Theme" uid="uid://xq1th67h5gd2" path="res://title_theme.tres" id="3_dhsvn"]
+[ext_resource type="AudioStream" uid="uid://dj4uilkv8ovjw" path="res://audio/gamemusic.mp3" id="4_1p20x"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -47,6 +48,10 @@ text = "Ayarlar
 layout_mode = 2
 theme = ExtResource("3_dhsvn")
 text = "Oyundan Çık"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1p20x")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

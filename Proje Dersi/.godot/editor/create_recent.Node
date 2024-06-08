@@ -1,11 +1,11 @@
+AudioStreamPlayer
+Label
 Button
 Sprite2D
 HBoxContainer
-Label
 HSlider
 VBoxContainer
 Control
-AudioStreamPlayer
 CollisionShape2D
 Area2D
 Node2D

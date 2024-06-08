@@ -18,6 +18,7 @@ func _ready():
 	$Control/Button.self_modulate = Color(1,1,1,0)
 	$Control/ActivityButton.disabled = true
 	$Control/ActivityButton.self_modulate = Color(1,1,1,0)
+	$GameMusic.play()
 	_complete_grid()
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
@@ -58,22 +59,28 @@ func _physics_process(_delta):
 				$SolTarafProje/Carpentryy.visible = false
 				$Control/Button.disabled = false
 				$Control/Button.self_modulate = Color(1,1,1,1)
+				$Control/arc_label.visible = true
 				$Control/ActivityButton.disabled = false
 				$Control/ActivityButton.self_modulate = Color(1,1,1,1)
+				$Control/can_label.visible = true
 			else:
 				$SolTarafProje/Banka1.visible = true
 				$SolTarafProje/Carpentryy.visible = true
 				$Control/Button.disabled = true
 				$Control/Button.self_modulate = Color(1,1,1,0)
+				$Control/arc_label.visible = false
 				$Control/ActivityButton.disabled = true
 				$Control/ActivityButton.self_modulate = Color(1,1,1,0)
+				$Control/can_label.visible = false
 		else:
 			$SolTarafProje/Banka1.visible = true
 			$SolTarafProje/Carpentryy.visible = true
 			$Control/Button.disabled = true
 			$Control/Button.self_modulate = Color(1,1,1,0)
+			$Control/arc_label.visible = false
 			$Control/ActivityButton.disabled = true
 			$Control/ActivityButton.self_modulate = Color(1,1,1,0)
+			$Control/can_label.visible = false
 
 func _complete_grid():
 	PathGenInstance.zorluk_ayarla()

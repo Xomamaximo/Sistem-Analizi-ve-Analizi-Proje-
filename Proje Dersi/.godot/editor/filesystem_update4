@@ -1,5 +1,4 @@
 res://scenes/main.tscn
-res://scripts/peasent_enemy.gd
 res://scenes/enemy_peasent.tscn
 res://scenes/tower_archer.tscn
 res://scenes/cannon_tower.tscn
@@ -10,5 +9,6 @@ res://scenes/archer_button.tscn
 res://scenes/arrow.tscn
 res://scenes/title_screen.tscn
 res://scenes/options_menu.tscn
-res://scripts/Round_Button.gd
-res://scripts/MenuButton.gd
+res://scripts/main.gd
+res://TitileScreen.gd
+res://scenes/GameMusic.gd

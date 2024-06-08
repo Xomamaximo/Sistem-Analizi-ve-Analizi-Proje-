@@ -8,7 +8,7 @@ func _ready():
 
 
 func _process(_delta):
-	text = str("Tur: ",Resources.game_round)
+	text = str("BAŞLA\nTur:",Resources.game_round)
 	if Resources.peasent_left + Resources.knight_left == 0 and Resources.round_ended == false:
 		Resources.round_ended = true
 		Resources.round_end_reward_given = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm613ebgwa127"]
+[gd_scene load_steps=22 format=3 uid="uid://cm613ebgwa127"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" path="res://scripts/gold_sign.gd" id="16_ib083"]
 [ext_resource type="Script" path="res://scripts/Round_Button.gd" id="17_siftm"]
 [ext_resource type="Script" path="res://scripts/MenuButton.gd" id="18_l3gnq"]
+[ext_resource type="AudioStream" uid="uid://dj4uilkv8ovjw" path="res://audio/gamemusic.mp3" id="20_53r80"]
+[ext_resource type="Script" path="res://scripts/GameMusic.gd" id="21_pxotq"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -84,6 +86,31 @@ offset_bottom = 50.48
 activity_button_icon = ExtResource("14_toe6k")
 activity_draggable = ExtResource("15_vv8qd")
 
+[node name="arc_label" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 30.0007
+offset_top = 379.0
+offset_right = 116.001
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Wood : 2
+Stone : 1"
+
+[node name="can_label" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 147.001
+offset_top = 382.0
+offset_right = 238.001
+offset_bottom = 457.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Wood : 1
+Stone : 1
+İron : 1"
+
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -126,5 +153,10 @@ position = Vector2(-320, 0)
 texture = ExtResource("13_2m8lj")
 centered = false
 
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_53r80")
+script = ExtResource("21_pxotq")
+
 [connection signal="button_down" from="Control2/Round_Button" to="Control2/Round_Button" method="_on_button_down"]
 [connection signal="pressed" from="Control2/MenuButton" to="Control2/MenuButton" method="_on_pressed"]
+[connection signal="finished" from="GameMusic" to="GameMusic" method="_on_finished"]
