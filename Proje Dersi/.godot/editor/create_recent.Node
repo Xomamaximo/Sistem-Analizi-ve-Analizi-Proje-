@@ -1,14 +1,18 @@
 AudioStreamPlayer
+<<<<<<< Updated upstream
 Label
+=======
+BoxContainer
+ColorRect
+Label
+VBoxContainer
+>>>>>>> Stashed changes
 Button
 Sprite2D
 HBoxContainer
 HSlider
-VBoxContainer
 Control
 CollisionShape2D
 Area2D
 Node2D
 Node
-AnimatedSprite2D
-StateChart

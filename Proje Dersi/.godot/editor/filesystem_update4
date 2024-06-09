@@ -9,6 +9,14 @@ res://scenes/archer_button.tscn
 res://scenes/arrow.tscn
 res://scenes/title_screen.tscn
 res://scenes/options_menu.tscn
+<<<<<<< Updated upstream
 res://scripts/main.gd
 res://TitileScreen.gd
 res://scenes/GameMusic.gd
+=======
+res://TitileScreen.gd
+res://scripts/main.gd
+res://scripts/resources.gd
+res://scripts/MenuButton.gd
+res://default_bus_layout.tres
+>>>>>>> Stashed changes

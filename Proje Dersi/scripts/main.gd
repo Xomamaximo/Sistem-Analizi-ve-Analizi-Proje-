@@ -18,17 +18,26 @@ func _ready():
 	$Control/Button.self_modulate = Color(1,1,1,0)
 	$Control/ActivityButton.disabled = true
 	$Control/ActivityButton.self_modulate = Color(1,1,1,0)
+<<<<<<< Updated upstream
 	$GameMusic.play()
+=======
+	$"Control/Kaybetme Menüsü".visible = false
+>>>>>>> Stashed changes
 	_complete_grid()
 	print(PathGenInstance.get_path_route())
 	print(PathGenInstance.get_path_reversed())
 
 func _process(_delta):
-		if Resources.start_new_round == true:
-			Resources.start_new_round = false
-			_summon_peasant()
-			await get_tree().create_timer(1).timeout
-			_summon_knight()
+	while Resources.in_game == true and $MainMusic.playing == false:
+		$MainMusic.play()
+	if Resources.game_health <= 0:
+		get_tree().paused = true
+		$"Control/Kaybetme Menüsü".visible = true
+	if Resources.start_new_round == true:
+		Resources.start_new_round = false
+		_summon_peasant()
+		await get_tree().create_timer(1).timeout
+		_summon_knight()
 
 func _summon_peasant():
 	for i in Resources.peasent_total:
