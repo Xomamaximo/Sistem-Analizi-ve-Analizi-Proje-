@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://j25nysm364ls"]
+[gd_scene load_steps=8 format=3 uid="uid://j25nysm364ls"]
 
 [ext_resource type="Texture2D" uid="uid://bbwq605sj5t5u" path="res://assets/main_menu_new.png" id="1_5jd81"]
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8mk4k"]
 [ext_resource type="Theme" uid="uid://xq1th67h5gd2" path="res://title_theme.tres" id="2_0rgy3"]
 [ext_resource type="Script" path="res://scenes/AnaSesSlider.gd" id="4_e05gw"]
+[ext_resource type="Script" path="res://scenes/FxSlider.gd" id="5_2nukj"]
+[ext_resource type="AudioStream" uid="uid://dj4uilkv8ovjw" path="res://audio/gamemusic.mp3" id="5_n42i4"]
+[ext_resource type="AudioStream" uid="uid://c5bjkpkhw11ov" path="res://audio/death.mp3" id="7_10bhp"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -75,6 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.001
+value = 1.0
 script = ExtResource("4_e05gw")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -91,13 +95,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.001
+value = 1.0
+script = ExtResource("5_2nukj")
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Menüye Dön"
 
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n42i4")
+autoplay = true
+bus = &"Music"
+
+[node name="FxTest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_10bhp")
+bus = &"fx"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Zorluklar/Kolay" to="." method="_on_kolay_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Zorluklar/Orta" to="." method="_on_orta_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Zorluklar/Zor" to="." method="_on_zor_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Ses/AnaSesSlider" to="VBoxContainer/Ses/AnaSesSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/FxSlider" to="VBoxContainer/HBoxContainer2/FxSlider" method="_on_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menübutton_pressed"]

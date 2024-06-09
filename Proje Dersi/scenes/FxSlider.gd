@@ -1,6 +1,6 @@
 extends HSlider
 
-var bus_name:String = "Music"
+var bus_name:String = "fx"
 var bus_index:int
 
 func _ready():
@@ -8,6 +8,7 @@ func _ready():
 
 
 func _on_value_changed(value):
+	$"../../../FxTest".play()
 	AudioServer.set_bus_volume_db(bus_index,linear_to_db(value))
 
 func _process(_delta):

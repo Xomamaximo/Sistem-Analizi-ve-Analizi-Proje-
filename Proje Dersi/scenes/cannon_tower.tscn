@@ -80,6 +80,7 @@ event = &"to_patrolling"
 [node name="CannonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_pcsjg")
 volume_db = -21.0
+bus = &"fx"
 
 [connection signal="area_entered" from="PatrolZone" to="." method="_on_patrol_zone_area_entered"]
 [connection signal="area_exited" from="PatrolZone" to="." method="_on_patrol_zone_area_exited"]

@@ -127,7 +127,7 @@ libraries = {
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_tfij0")
-bus = &"FX"
+bus = &"fx"
 
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/spawning" to="." method="_on_spawning_state_entered"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/travelling" to="." method="_on_travelling_state_entered"]

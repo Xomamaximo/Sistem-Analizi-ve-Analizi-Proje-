@@ -16,3 +16,8 @@ res://scripts/main.gd
 res://TitileScreen.gd
 res://scripts/knight_enemy.gd
 res://scripts/peasent_enemy.gd
+res://scenes/FxSlider.gd
+res://default_bus_layout.tres
+res://scripts/GameMusic.gd
+res://scripts/MenuButton.gd
+res://scripts/options_menu.gd

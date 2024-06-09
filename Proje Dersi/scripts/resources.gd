@@ -20,4 +20,4 @@ var in_game:bool = false
 @export var stone:int = 2
 @export var iron:int = 0
 
-var secilenzorluk:String = "kolay"
+var secilenzorluk:String = "orta"
