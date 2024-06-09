@@ -88,7 +88,6 @@ func _physics_process(_delta):
 			$Control/can_label.visible = false
 
 func _complete_grid():
-	PathGenInstance.zorluk_ayarla()
 	for x in range(PathGenInstance.path_config.map_lenght):
 		for y in range (PathGenInstance.path_config.map_height+7):
 			if not PathGenInstance.get_path_route().has(Vector2i(x,y)):

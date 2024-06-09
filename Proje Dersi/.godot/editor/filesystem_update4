@@ -9,3 +9,10 @@ res://scenes/archer_button.tscn
 res://scenes/arrow.tscn
 res://scenes/title_screen.tscn
 res://scenes/options_menu.tscn
+res://scenes/AnaSesSlider.gd
+res://scripts/path_generator.gd
+res://scripts/resources.gd
+res://scripts/main.gd
+res://TitileScreen.gd
+res://scripts/knight_enemy.gd
+res://scripts/peasent_enemy.gd

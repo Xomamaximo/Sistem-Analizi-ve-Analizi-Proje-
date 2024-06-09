@@ -26,6 +26,7 @@ func _on_start_button_pressed():
 	Resources.stone = 2
 	Resources.iron = 0
 	Resources.in_game = true
+	PathGenInstance.zorluk_ayarla()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 

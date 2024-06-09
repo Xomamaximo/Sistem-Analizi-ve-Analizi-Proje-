@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://j25nysm364ls"]
+[gd_scene load_steps=5 format=3 uid="uid://j25nysm364ls"]
 
 [ext_resource type="Texture2D" uid="uid://bbwq605sj5t5u" path="res://assets/main_menu_new.png" id="1_5jd81"]
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8mk4k"]
 [ext_resource type="Theme" uid="uid://xq1th67h5gd2" path="res://title_theme.tres" id="2_0rgy3"]
+[ext_resource type="Script" path="res://scenes/AnaSesSlider.gd" id="4_e05gw"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -71,11 +72,10 @@ text = "Ana Ses Seviyesi:"
 
 [node name="AnaSesSlider" type="HSlider" parent="VBoxContainer/Ses"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 max_value = 1.0
 step = 0.001
-tick_count = 3
-ticks_on_borders = true
+script = ExtResource("4_e05gw")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -84,13 +84,13 @@ size_flags_vertical = 0
 [node name="FxLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_0rgy3")
-text = "Ses Efektleri Seviyesi:"
+text = "Ses Fx Seviyesi:   "
 
 [node name="FxSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-tick_count = 3
-ticks_on_borders = true
+max_value = 1.0
+step = 0.001
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

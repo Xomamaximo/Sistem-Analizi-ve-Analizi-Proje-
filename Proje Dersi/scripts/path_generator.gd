@@ -17,8 +17,11 @@ func zorluk_ayarla():
 	while _path_route.size() <  zorluk_tablosu[Resources.secilenzorluk] or  _path_route.size() >  zorluk_tablosu[Resources.secilenzorluk] +5  :
 		generate_path()
 
+
+
 func generate_path():
 	_path_route.clear()
+	_path_reverse.clear()
 	randomize()
 	
 	var x = 0
@@ -44,7 +47,6 @@ func generate_path():
 				x +=1
 				_path_route.append(Vector2i(x,y))
 		
-			
 	return _path_route
 
 func get_tile_score(index:int) -> int:

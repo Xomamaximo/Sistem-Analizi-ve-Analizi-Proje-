@@ -140,6 +140,7 @@ text = "Menüye Dön"
 script = ExtResource("18_l3gnq")
 
 [node name="Kaybetme Menüsü" type="BoxContainer" parent="Control"]
+process_mode = 2
 layout_mode = 0
 offset_left = 400.001
 offset_top = 131.0
@@ -149,7 +150,12 @@ offset_bottom = 570.0
 [node name="ColorRect" type="ColorRect" parent="Control/Kaybetme Menüsü"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.160784, 0.160784, 0.290196, 1)
+color = Color(0.113725, 0.113725, 0.215686, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Kaybetme Menüsü/ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control/Kaybetme Menüsü/ColorRect"]
 layout_mode = 1
