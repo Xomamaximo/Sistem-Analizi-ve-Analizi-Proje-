@@ -12,6 +12,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	get_tree().paused = false
-	Resources.in_game = false
 	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")

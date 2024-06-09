@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=22 format=3 uid="uid://cm613ebgwa127"]
-=======
 [gd_scene load_steps=21 format=3 uid="uid://cm613ebgwa127"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vayw6"]
 [ext_resource type="PackedScene" uid="uid://cxgyk3egpqbnw" path="res://scenes/path_straight.tscn" id="2_jxnr2"]
@@ -22,13 +18,8 @@
 [ext_resource type="Script" path="res://scripts/gold_sign.gd" id="16_ib083"]
 [ext_resource type="Script" path="res://scripts/Round_Button.gd" id="17_siftm"]
 [ext_resource type="Script" path="res://scripts/MenuButton.gd" id="18_l3gnq"]
-<<<<<<< Updated upstream
 [ext_resource type="AudioStream" uid="uid://dj4uilkv8ovjw" path="res://audio/gamemusic.mp3" id="20_53r80"]
 [ext_resource type="Script" path="res://scripts/GameMusic.gd" id="21_pxotq"]
-=======
-[ext_resource type="Theme" uid="uid://xq1th67h5gd2" path="res://title_theme.tres" id="19_3sbai"]
-[ext_resource type="AudioStream" uid="uid://8w4gtnai8oj6" path="res://audio/Audio-Sigma.ogg" id="20_ik2nt"]
->>>>>>> Stashed changes
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_vayw6")
@@ -94,7 +85,6 @@ offset_bottom = 50.48
 activity_button_icon = ExtResource("14_toe6k")
 activity_draggable = ExtResource("15_vv8qd")
 
-<<<<<<< Updated upstream
 [node name="arc_label" type="Label" parent="Control"]
 visible = false
 layout_mode = 0
@@ -128,18 +118,16 @@ offset_right = 962.0
 offset_bottom = 723.0
 
 [node name="Gold_Label" type="Label" parent="Control2"]
-=======
-[node name="Gold_Label" type="Label" parent="Control"]
->>>>>>> Stashed changes
 top_level = true
 layout_mode = 1
-anchors_preset = -1
-offset_right = 850.0
-offset_bottom = 50.0
+offset_left = 43.0
+offset_top = 32.0
+offset_right = 868.0
+offset_bottom = 85.0
 vertical_alignment = 1
 script = ExtResource("16_ib083")
 
-[node name="Round_Button" type="Button" parent="Control"]
+[node name="Round_Button" type="Button" parent="Control2"]
 top_level = true
 layout_mode = 0
 offset_left = 839.0
@@ -148,76 +136,20 @@ offset_right = 932.0
 offset_bottom = 688.0
 script = ExtResource("17_siftm")
 
-[node name="MenuButton" type="Button" parent="Control"]
+[node name="MenuButton" type="Button" parent="Control2"]
 layout_mode = 0
-offset_left = 5.00067
+offset_left = -318.0
 offset_top = 18.0
-offset_right = 135.001
+offset_right = -188.0
 offset_bottom = 55.0
 text = "Menüye Dön"
 script = ExtResource("18_l3gnq")
 
-[node name="Kaybetme Menüsü" type="VBoxContainer" parent="Control"]
-process_mode = 2
-top_level = true
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -220.0
-offset_right = 640.0
-offset_bottom = 220.0
-grow_vertical = 2
-
-<<<<<<< Updated upstream
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_53r80")
+bus = &"Music"
 script = ExtResource("21_pxotq")
 
 [connection signal="button_down" from="Control2/Round_Button" to="Control2/Round_Button" method="_on_button_down"]
 [connection signal="pressed" from="Control2/MenuButton" to="Control2/MenuButton" method="_on_pressed"]
 [connection signal="finished" from="GameMusic" to="GameMusic" method="_on_finished"]
-=======
-[node name="KaybetmeArkaplan" type="ColorRect" parent="Control/Kaybetme Menüsü"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(0.203922, 0.207843, 0.258824, 1)
-
-[node name="Kaybettiniz Yazısı" type="Label" parent="Control/Kaybetme Menüsü/KaybetmeArkaplan"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 42.0
-grow_horizontal = 2
-size_flags_vertical = 6
-theme = ExtResource("19_3sbai")
-text = "KAYBETTİNİZ"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="MenuButton2" type="Button" parent="Control/Kaybetme Menüsü/KaybetmeArkaplan"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -15.0
-offset_right = 99.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-text = "Menüye Dön"
-script = ExtResource("18_l3gnq")
-
-[node name="MainMusic" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("20_ik2nt")
-
-[connection signal="button_down" from="Control/Round_Button" to="Control/Round_Button" method="_on_button_down"]
-[connection signal="pressed" from="Control/MenuButton" to="Control/MenuButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/Kaybetme Menüsü/KaybetmeArkaplan/MenuButton2" to="Control/Kaybetme Menüsü/KaybetmeArkaplan/MenuButton2" method="_on_pressed"]
->>>>>>> Stashed changes
