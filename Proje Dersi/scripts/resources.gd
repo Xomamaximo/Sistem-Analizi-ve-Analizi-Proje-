@@ -1,5 +1,6 @@
 extends Node
 
+var in_game:bool = false
 
 @export var start_new_round:bool = false
 @export var round_ended:bool = false

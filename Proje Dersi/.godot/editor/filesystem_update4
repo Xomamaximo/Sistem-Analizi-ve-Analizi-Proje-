@@ -1,4 +1,3 @@
-res://default_bus_layout.tres
 res://scenes/main.tscn
 res://scenes/enemy_peasent.tscn
 res://scenes/tower_archer.tscn

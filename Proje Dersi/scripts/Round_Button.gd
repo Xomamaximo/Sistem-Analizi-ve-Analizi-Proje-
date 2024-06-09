@@ -3,12 +3,15 @@ extends Button
 
 
 func _ready():
-	pass # Replace with function body.
+	text = str(Resources.game_round+1,".Turu Başlat")
 
 
 
 func _process(_delta):
-	text = str("BAŞLA\nTur:",Resources.game_round)
+	if Resources.round_ended:
+		text = str(Resources.game_round+1,".Turu Başlat")
+	if not Resources.round_ended and Resources.game_round != 0:
+		text = str("Tur: ",Resources.game_round)
 	if Resources.peasent_left + Resources.knight_left == 0 and Resources.round_ended == false:
 		Resources.round_ended = true
 		Resources.round_end_reward_given = false

@@ -1,5 +1,7 @@
-AudioStreamPlayer
 Label
+ColorRect
+BoxContainer
+AudioStreamPlayer
 Button
 Sprite2D
 HBoxContainer
@@ -10,5 +12,3 @@ CollisionShape2D
 Area2D
 Node2D
 Node
-AnimatedSprite2D
-StateChart
